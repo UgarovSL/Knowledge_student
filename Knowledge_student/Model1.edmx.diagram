@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9b609897ad1642a0958b3b5d52490022" Name="Diagram1">
+        <EntityTypeShape EntityType="Knowledge_controlModel.Answers" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Disciplines" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Groups" Width="1.5" PointX="6" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Option_answers" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Questions" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Results" Width="1.5" PointX="10.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Students" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Teachers" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Tests" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Themes" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Questions_Answer" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Themes_Disciplines" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Students_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Option_answers_Questions" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Questions_Themes" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Results_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Results_Tests" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Tests_Teachers" ManuallyRouted="false" />
+        <AssociationConnector Association="Knowledge_controlModel.FK_Tests_Themes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
