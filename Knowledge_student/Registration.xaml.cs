@@ -18,6 +18,21 @@ namespace Knowledge_student
     /// <summary>
     /// Логика взаимодействия для Registration.xaml
     /// </summary>
+    /// RecordOfStudents
+
+
+
+    public static class RecordOfStudents
+    {
+        public static Students recordOfStudents;
+    }
+
+    public static class RecordOfTeachers
+    {
+        public static Teachers recordOfTeachers;
+    }
+
+
     public partial class Registration : Page
     {
         public Registration()

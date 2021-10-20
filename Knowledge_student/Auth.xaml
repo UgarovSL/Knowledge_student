@@ -22,7 +22,7 @@
                                Text = "Добро пожаловать!"/>
 
                     <Button Name = "regButton" Content = "Регистрация" FontSize = "15" Foreground = "#4FA833" FontWeight = "Bold" 
-                            Margin = "430 0 0 0" VerticalAlignment = "Top" BorderBrush = "{x:Null}" 
+                            Margin = "430 0 0 0" VerticalAlignment = "Top" Click="Button_Transition_Reg_Click" BorderBrush = "{x:Null}" 
                             Height = "35" Width ="160" />
 
                     <Label Content="Введите логин:" RenderTransformOrigin="0.492,2.053" Margin="0,35,430,35"/>
@@ -33,8 +33,10 @@
 
                     <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="5 160 170 ,-90"/>
 
-                    <Button x:Name = "enterButton" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Войти" FontSize = "15" 
-                            Height = "35" Width="590" Margin = "0 195 0 -135" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "enterButtonStud" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Войти как студент" FontSize = "15" 
+                            Height = "35" Margin = "0,192,379,-130" IsDefault="True" Click="Button_Auth_Click_Student"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "enterButtonTeach" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Войти как преподаватель" FontSize = "15" 
+                            Height = "35" Margin = "379,192,0,-130" IsDefault="True" Click ="Button_Auth_Click_Teacher"  BorderBrush = "{x:Null}"/>
 
                 </Grid>
             </StackPanel>
