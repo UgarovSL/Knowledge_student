@@ -101,11 +101,20 @@
     <Compile Include="Questions.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="RegisterStudents.xaml.cs">
+      <DependentUpon>RegisterStudents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterTeachers.xaml.cs">
+      <DependentUpon>RegisterTeachers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Results.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudentMenu.xaml.cs">
+      <DependentUpon>StudentMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Students.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -115,6 +124,9 @@
     </Compile>
     <Compile Include="Teachers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TeachersMenu.xaml.cs">
+      <DependentUpon>TeachersMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tests.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -165,7 +177,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RegisterStudents.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterTeachers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeachersMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

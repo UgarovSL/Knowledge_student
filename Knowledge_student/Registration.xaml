@@ -24,10 +24,10 @@
                     <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="5 160 170 ,-90"/>
 
                     <Button x:Name = "regButtonStud" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Зарегистрироваться как студент" FontSize = "15" 
-                            Height = "35" Margin = "0,93,0,-31" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "0,93,0,-31" IsDefault="True" Click="Button_Register_Students"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "regButtonTeach" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Зарегистрироваться как преподователь" FontSize = "15" 
-                            Height = "35" Margin = "0,152,0,-90" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "backButton" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад" FontSize = "15" Margin = "257,215,257,-143" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "0,152,0,-90" IsDefault="True" Click="Button_Register_Teachers" BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "backButton" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад" FontSize = "15" Margin = "257,215,257,-143" IsDefault="True" Click="Button_Back_Page_Click" BorderBrush = "{x:Null}"/>
 
                 </Grid>
             </StackPanel>

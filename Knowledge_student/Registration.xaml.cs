@@ -35,9 +35,24 @@ namespace Knowledge_student
 
     public partial class Registration : Page
     {
-        public Registration()
+
+        private void Button_Back_Page_Click(object sender, RoutedEventArgs e)
         {
-            InitializeComponent();
+            Uri Auth = new Uri("Auth.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(Auth);
         }
+
+        private void Button_Register_Students(object sender, RoutedEventArgs e)
+        {
+            Uri RegisterStudents = new Uri("RegisterStudents.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(RegisterStudents);
+        }
+
+        private void Button_Register_Teachers(object sender, RoutedEventArgs e)
+        {
+            Uri RegisterTeachers = new Uri("RegisterTeachers.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(RegisterTeachers);
+        }
+      
     }
 }
