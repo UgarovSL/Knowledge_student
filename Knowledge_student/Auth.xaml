@@ -8,8 +8,8 @@
       d:DesignHeight="600" d:DesignWidth="1080"
       Title="Auth">
 
-    <Grid Background = "#FF371F60">
-        <Grid Background = "#FF371F60" Margin="0 0 0 0"/>
+    <Grid Background = "#249140">
+        <Grid Background = "#249140" Margin="0 0 0 0"/>
         <Border MinHeight = "300" Margin="0 0 0 0 " Background = "White" VerticalAlignment = "Center" Padding = "30" 
                 MaxWidth = "650" CornerRadius = "20" Height = "300">
             <Border.Effect>
@@ -17,5 +17,27 @@
             </Border.Effect>
             <StackPanel>
                 <Grid>
-                    <TextBox    
+
+                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
+                               Text = "Добро пожаловать!"/>
+
+                    <Button Name = "regButton" Content = "Регистрация" FontSize = "15" Foreground = "#4FA833" FontWeight = "Bold" 
+                            Margin = "430 0 0 0" VerticalAlignment = "Top" BorderBrush = "{x:Null}" 
+                            Height = "35" Width ="160" />
+
+                    <Label Content="Введите логин:" RenderTransformOrigin="0.492,2.053" Margin="0,35,430,35"/>
+                    <TextBox x:Name = "textBoxLogin" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0 60 0 -10"/>
+                    <Label Content="Введите пароль:" Margin="0,100,0,-32"/>
+                    <PasswordBox Name = "passwordBox" Foreground = "Black" FontWeight ="Bold" Margin = "0,128,0,-78"/>
+
+                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="5 160 170 ,-90"/>
+
+                    <Button x:Name = "enterButton" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Войти" FontSize = "15" 
+                            Height = "35" Width="590" Margin = "0 195 0 -135" IsDefault="True"  BorderBrush = "{x:Null}"/>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Page>
