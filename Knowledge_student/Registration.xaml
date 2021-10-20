@@ -8,5 +8,29 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Registration">
 
-    <Grid/>
+    <Grid Background = "#249140">
+        <Grid Background = "#249140" Margin="0 0 0 0"/>
+        <Border MinHeight = "300" Margin="0 0 0 0 " Background = "White" VerticalAlignment = "Center" Padding = "30" 
+                MaxWidth = "650" CornerRadius = "20" Height = "300">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Grid>
+
+                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0,0,0,60"
+                               Text = "Выберите тип регистрации:"/>
+
+                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="5 160 170 ,-90"/>
+
+                    <Button x:Name = "regButtonStud" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Зарегистрироваться как студент" FontSize = "15" 
+                            Height = "35" Margin = "0,93,0,-31" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "regButtonTeach" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Зарегистрироваться как преподователь" FontSize = "15" 
+                            Height = "35" Margin = "0,152,0,-90" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "backButton" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад" FontSize = "15" Margin = "257,215,257,-143" IsDefault="True"  BorderBrush = "{x:Null}"/>
+
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Page>
