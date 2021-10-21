@@ -31,7 +31,7 @@
                     <Label Content="Введите пароль:" Margin="0,100,0,-32"/>
                     <PasswordBox Name = "passwordBox" Foreground = "Black" FontWeight ="Bold" Margin = "0,128,0,-78"/>
 
-                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="5 160 170 ,-90"/>
+                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="0,134,175,-64"/>
 
                     <Button x:Name = "enterButtonStud" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Войти как студент" FontSize = "15" 
                             Height = "35" Margin = "0,192,379,-130" IsDefault="True" Click="Button_Auth_Click_Student"  BorderBrush = "{x:Null}"/>
