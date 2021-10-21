@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bfc20fbac1f34d8c8ed7a084919310b4" Name="Diagram1">
+      <Diagram DiagramId="bfc20fbac1f34d8c8ed7a084919310b4" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="Knowledge_controlModel.Answers" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="Knowledge_controlModel.Disciplines" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Knowledge_controlModel.Groups" Width="1.5" PointX="6" PointY="13.25" IsExpanded="true" />

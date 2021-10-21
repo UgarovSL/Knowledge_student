@@ -8,7 +8,54 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="RegisterStudents">
 
-    <Grid>
-        
+    <Grid Background = "#249140">
+        <Grid Background = "#249140" Margin="0 0 0 0"/>
+        <Border MinHeight = "800" Margin="0 0 0 0 " Background = "White" VerticalAlignment = "Center" Padding = "30" 
+                MaxWidth = "1900" CornerRadius = "20" Height = "980">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Grid>
+
+                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
+                               Text = "Регистрация"/>
+
+
+
+                    <Label Content="Введите фамилию:" RenderTransformOrigin="0.492,2.053" Margin="0,100,430,-30"/>
+                    <TextBox x:Name = "textBoxLastName" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,130,0,-80"/>
+                    <Label Content="Введите Имя:" RenderTransformOrigin="0.492,2.053" Margin="0,176,430,-106"/>
+                    <TextBox x:Name = "textBoxName" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,206,0,-156"/>
+                    <Label Content="Введите Отчество:" RenderTransformOrigin="0.492,2.053" Margin="0,256,430,-186"/>
+                    <TextBox x:Name = "textBoxPatronymic" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,286,0,-236"/>
+                    <Label Content="Выберите пол:" RenderTransformOrigin="0.492,2.053" Margin="0,336,430,-266"/>
+                    <ComboBox x:Name = "comboBoxGender" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,371,0,-321"/>
+                    <Label Content="Введите логин:" RenderTransformOrigin="0.492,2.053" Margin="0,497,430,-427"/>
+                    <TextBox x:Name = "textBoxLogin" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,527,0,-477"/>
+                    <Label Content="Введите пароль:" Margin="0,577,0,-509"/>
+                    <PasswordBox Name = "passwordBox" Foreground = "Black" FontWeight ="Bold" Margin = "0,609,0,-559"/>
+
+                    <Label Content="Повторите пароль:" Margin="0,659,0,-591"/>
+                    <PasswordBox Name = "passwordBoxCheck" Foreground = "Black" FontWeight ="Bold" Margin = "0,691,0,-641"/>
+
+                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="0,176,175,-106"/>
+
+                    <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
+                            Height = "35" Margin = "0,760,1490,-695" IsDefault="True" Click="Button_Reg_Click"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "backBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад к выбору" FontSize = "15" 
+                            Height = "35" Margin = "1490,760,0,-695" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                    <TextBox x:Name = "textBoxGroup" Foreground = "Black" FontWeight = "Bold"
+                        Margin = "0,447,0,-397"/>
+                    <Label Content="Введите группу:" RenderTransformOrigin="0.492,2.053" Margin="0,421,430,-351"/>
+
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
