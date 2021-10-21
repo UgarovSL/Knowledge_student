@@ -76,7 +76,7 @@ namespace Knowledge_student
 
         private void Button_Auth_Click_Teacher(object sender, RoutedEventArgs e)
         {
-            //TODO: MV
+            //TODO: MV Test code
             //  - выделение модели
             //  - логика валидации в модель должна уйти
             string login = textBoxLogin.Text.Trim().ToLower();
