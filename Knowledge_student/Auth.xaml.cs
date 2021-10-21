@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 
 namespace Knowledge_student
 {
-    /// <summary> test2
+    /// <summary>
     /// Логика взаимодействия для Auth.xaml
     /// </summary>
     public partial class Auth : Page
