@@ -24,7 +24,7 @@ namespace Knowledge_student
         public RegisterTeachers()
         {
             InitializeComponent();
-            List<string> Genders = new List<string>() { "м", "ж" };
+            List<char> Genders = new List<char>() { 'м', 'ж' };
             comboBoxGender.ItemsSource = Genders;
         }
 
@@ -51,7 +51,7 @@ namespace Knowledge_student
             string passwordOfTeacherRepeat = passwordBoxCheck.Password.Trim();
 
 
-            if (lastNameOfTeacher.Length <= minLenghtOfName || lastNameOfTeacher.Length >= maxLenghtOfName)
+            if (lastNameOfTeacher.Length <= minLenghtOfName || lastNameOfTeacher.Length >= maxLenghtOfName || !Regex.IsMatch(lastNameOfTeacher, @"[\dа-я]"))
             {
                 textBoxLastName.ToolTip = $"Фамилия не должна быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
                 var backgroundColor = new BrushConverter();
@@ -62,7 +62,7 @@ namespace Knowledge_student
                 textBoxName.Background = Brushes.Transparent;
                 textBoxName.ToolTip = null;
 
-                if (nameOfTeacher.Length <= minLenghtOfName || nameOfTeacher.Length >= maxLenghtOfName)
+                if (nameOfTeacher.Length <= minLenghtOfName || nameOfTeacher.Length >= maxLenghtOfName || !Regex.IsMatch(nameOfTeacher, @"[\dа-я]"))
                 {
                     textBoxName.ToolTip = $"Имя не должно быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
                     var backgroundColor = new BrushConverter();
@@ -74,7 +74,7 @@ namespace Knowledge_student
                     textBoxName.ToolTip = null;
 
 
-                    if (patronymicOfTeacher.Length <= minLenghtOfName || patronymicOfTeacher.Length >= maxLenghtOfName)
+                    if (patronymicOfTeacher.Length <= minLenghtOfName || patronymicOfTeacher.Length >= maxLenghtOfName || !Regex.IsMatch(patronymicOfTeacher, @"[\dа-я]")) 
                     {
                         textBoxPatronymic.ToolTip = $"Имя не должно быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
                         var backgroundColor = new BrushConverter();
@@ -92,9 +92,9 @@ namespace Knowledge_student
                         }
                         else
                         {
-                            string sel = comboBoxGender.Text;
+                            
 
-                            if (loginOfTeacher.Length <= minLengthOfLogin || loginOfTeacher.Length >= maxLengthOfLogin || !Regex.IsMatch(passwordOfTeacher, @"^[\da-z]+$"))
+                            if (loginOfTeacher.Length <= minLengthOfLogin || loginOfTeacher.Length >= maxLengthOfLogin || !Regex.IsMatch(loginOfTeacher, @"^[\da-z]+$"))
                             {
                                 textBoxLogin.ToolTip = $"The login is too short, enter more than {minLengthOfLogin} characters or more {maxLengthOfLogin} characters.";
                                 var backgroundColor = new BrushConverter();
@@ -135,7 +135,7 @@ namespace Knowledge_student
                                                     Last_name = lastNameOfTeacher,
                                                     Name = nameOfTeacher,
                                                     Patronymic = patronymicOfTeacher,                                                  
-                                                    Gender = sel,
+                                                    Gender = comboBoxGender.SelectedItem.ToString(),
                                                     Login = loginOfTeacher,
                                                     Password = passwordOfTeacher
                                                 };
