@@ -8,7 +8,33 @@
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="TeachersMenu">
 
-    <Grid>
-        
+    <Grid Background = "#249140">
+        <Grid Background = "#249140" Margin="0 0 0 0"/>
+        <Border MinHeight = "800" Margin="0 0 0 0 " Background = "White" VerticalAlignment = "Center" Padding = "30" 
+                MaxWidth = "1900" CornerRadius = "20" Height = "980">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius = "30" Color = "LightGray" ShadowDepth = "0"/>
+            </Border.Effect>
+            <StackPanel>
+                <Grid>
+
+                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
+                               Text = "Регистрация"/>
+
+
+                    <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Что-то" FontSize = "15" 
+                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True"   BorderBrush = "{x:Null}"/>
+
+
+                    <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
+                            Height = "35" Margin = "0,524,1490,-459" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "backBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад к выбору" FontSize = "15" 
+                            Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
+
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>
+
