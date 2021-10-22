@@ -77,7 +77,7 @@ namespace Knowledge_student
 
                     if (patronymicOfStudent.Length <= minLenghtOfName || patronymicOfStudent.Length >= maxLenghtOfName || !Regex.IsMatch(patronymicOfStudent, @"[\dа-я]"))
                     {
-                        textBoxPatronymic.ToolTip = $"Имя не должно быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
+                        textBoxPatronymic.ToolTip = $"Отчество не должно быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
                         var backgroundColor = new BrushConverter();
                         textBoxPatronymic.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                     }

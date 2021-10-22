@@ -28,14 +28,14 @@ namespace Knowledge_student
             comboBoxGender.ItemsSource = Genders;
         }
 
-        const int minLengthOfLogin = 5;
-        const int maxLengthOfLogin = 25;
+        const int minLengthOfLogins = 5;
+        const int maxLengthOfLogins = 25;
 
-        const int minLengthOfPassword = 5;
-        const int maxLengthOfPassword = 60;
+        const int minLengthOfPasswords = 5;
+        const int maxLengthOfPasswords = 60;
 
-        const int minLenghtOfName = 2;
-        const int maxLenghtOfName = 50;
+        const int minLenghtOfNames = 2;
+        const int maxLenghtOfNames = 50;
 
 
 
@@ -51,9 +51,9 @@ namespace Knowledge_student
             string passwordOfTeacherRepeat = passwordBoxCheck.Password.Trim();
 
 
-            if (lastNameOfTeacher.Length <= minLenghtOfName || lastNameOfTeacher.Length >= maxLenghtOfName || !Regex.IsMatch(lastNameOfTeacher, @"[\dа-я]"))
+            if (lastNameOfTeacher.Length <= minLenghtOfNames || lastNameOfTeacher.Length >= maxLenghtOfNames || !Regex.IsMatch(lastNameOfTeacher, @"[\dа-я]"))
             {
-                textBoxLastName.ToolTip = $"Фамилия не должна быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
+                textBoxLastName.ToolTip = $"Фамилия не должна быть меньше {minLenghtOfNames} символов или больше {minLenghtOfNames} символов.";
                 var backgroundColor = new BrushConverter();
                 textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
             }
@@ -62,9 +62,9 @@ namespace Knowledge_student
                 textBoxName.Background = Brushes.Transparent;
                 textBoxName.ToolTip = null;
 
-                if (nameOfTeacher.Length <= minLenghtOfName || nameOfTeacher.Length >= maxLenghtOfName || !Regex.IsMatch(nameOfTeacher, @"[\dа-я]"))
+                if (nameOfTeacher.Length <= minLenghtOfNames || nameOfTeacher.Length >= minLenghtOfNames || !Regex.IsMatch(nameOfTeacher, @"[\dа-я]"))
                 {
-                    textBoxName.ToolTip = $"Имя не должно быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
+                    textBoxName.ToolTip = $"Имя не должно быть меньше {minLenghtOfNames} символов или больше {minLenghtOfNames} символов.";
                     var backgroundColor = new BrushConverter();
                     textBoxName.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                 }
@@ -74,9 +74,9 @@ namespace Knowledge_student
                     textBoxName.ToolTip = null;
 
 
-                    if (patronymicOfTeacher.Length <= minLenghtOfName || patronymicOfTeacher.Length >= maxLenghtOfName || !Regex.IsMatch(patronymicOfTeacher, @"[\dа-я]")) 
+                    if (patronymicOfTeacher.Length <= minLenghtOfNames || patronymicOfTeacher.Length >= minLenghtOfNames || !Regex.IsMatch(patronymicOfTeacher, @"[\dа-я]")) 
                     {
-                        textBoxPatronymic.ToolTip = $"Имя не должно быть меньше {minLengthOfLogin} символов или больше {maxLengthOfLogin} символов.";
+                        textBoxPatronymic.ToolTip = $"Отчество не должно быть меньше {minLenghtOfNames} символов или больше {minLenghtOfNames} символов.";
                         var backgroundColor = new BrushConverter();
                         textBoxPatronymic.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                     }
@@ -94,9 +94,9 @@ namespace Knowledge_student
                         {
                             
 
-                            if (loginOfTeacher.Length <= minLengthOfLogin || loginOfTeacher.Length >= maxLengthOfLogin || !Regex.IsMatch(loginOfTeacher, @"^[\da-z]+$"))
+                            if (loginOfTeacher.Length <= minLengthOfLogins || loginOfTeacher.Length >= maxLengthOfLogins || !Regex.IsMatch(loginOfTeacher, @"^[\da-z]+$"))
                             {
-                                textBoxLogin.ToolTip = $"The login is too short, enter more than {minLengthOfLogin} characters or more {maxLengthOfLogin} characters.";
+                                textBoxLogin.ToolTip = $"Логин не должнен быть меньше {minLengthOfLogins} символов или больше {minLengthOfLogins} символов.";
                                 var backgroundColor = new BrushConverter();
                                 textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                             }
@@ -104,9 +104,9 @@ namespace Knowledge_student
                             {
                                 textBoxLogin.Background = Brushes.Transparent;
                                 textBoxLogin.ToolTip = null;
-                                if (passwordOfTeacher.Length <= minLengthOfPassword || passwordOfTeacher.Length >= maxLengthOfPassword || !Regex.IsMatch(passwordOfTeacher, @"^[\da-z]+$"))
+                                if (passwordOfTeacher.Length <= minLengthOfPasswords || passwordOfTeacher.Length >= maxLengthOfPasswords || !Regex.IsMatch(passwordOfTeacher, @"^[\da-z]+$"))
                                 {
-                                    passwordBox.ToolTip = $"The password is too short, enter more than {minLengthOfPassword} characters or more {maxLengthOfPassword} characters.";
+                                    passwordBox.ToolTip = $"Пароль не должен быть короче чем {minLengthOfPasswords} символов или больше {maxLengthOfPasswords} символов.";
                                     var backgroundColor = new BrushConverter();
                                     passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                                 }
@@ -116,7 +116,7 @@ namespace Knowledge_student
                                     passwordBox.ToolTip = null;
                                     if (passwordOfTeacher != passwordOfTeacherRepeat)
                                     {
-                                        passwordBoxCheck.ToolTip = "Passwords don't match.";
+                                        passwordBoxCheck.ToolTip = "Неверный пароль.";
                                         var backgroundColor = new BrushConverter();
                                         passwordBoxCheck.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                                     }
@@ -148,7 +148,7 @@ namespace Knowledge_student
                                                 this.NavigationService.Navigate(Auth);
                                             }
                                             else
-                                                errorBox.Text = "This login or email is already registered";
+                                                errorBox.Text = "Данный логин уже существует.";
                                         }
 
                                     }
