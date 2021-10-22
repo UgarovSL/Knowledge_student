@@ -56,7 +56,6 @@
           <Property Name="Last_name" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="Paronymic" Type="varchar" MaxLength="15" Nullable="false" />
-          <Property Name="Number_group" Type="int" Nullable="false" />
           <Property Name="Login" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
@@ -321,7 +320,6 @@
           <Property Name="Last_name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Paronymic" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Number_group" Type="Int32" Nullable="false" />
           <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -591,7 +589,6 @@
                 <ScalarProperty Name="Last_name" ColumnName="Last_name" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Paronymic" ColumnName="Paronymic" />
-                <ScalarProperty Name="Number_group" ColumnName="Number_group" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />

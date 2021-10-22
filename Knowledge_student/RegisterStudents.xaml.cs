@@ -37,6 +37,9 @@ namespace Knowledge_student
         const int minLenghtOfName = 2;
         const int maxLenghtOfName = 50;
 
+        const int minLenghtOfGroup = 5;
+        const int maxLenghtOfGroup = 8;
+
 
 
         private void Button_Reg_Click(object sender, RoutedEventArgs e)
@@ -45,7 +48,7 @@ namespace Knowledge_student
             string nameOfStudent = textBoxName.Text.Trim();
             string patronymicOfStudent = textBoxPatronymic.Text.Trim();
             string groupOfStudent = textBoxGroup.Text.Trim().ToLower();
-            int groupNum;
+
 
             string loginOfStudent = textBoxLogin.Text.Trim().ToLower();
             string passwordOfStudent = passwordBox.Password.Trim();
@@ -93,9 +96,9 @@ namespace Knowledge_student
                         }
                         else
                         {
-                            if (textBoxGroup == null)
+                            if (groupOfStudent.Length <= minLenghtOfGroup || groupOfStudent.Length >= maxLenghtOfGroup)
                             {
-                                textBoxGroup.ToolTip = $"The login is too short, enter more than {minLengthOfLogin} characters or more {maxLengthOfLogin} characters.";
+                                textBoxGroup.ToolTip = $"Группа не должна быть меньше {minLenghtOfGroup} символов или больше {maxLenghtOfGroup} символов.";
                                 var backgroundColor = new BrushConverter();
                                 textBoxGroup.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                             }
@@ -103,75 +106,68 @@ namespace Knowledge_student
                             {
                                 textBoxGroup.Background = Brushes.Transparent;
                                 textBoxGroup.ToolTip = null;
-                                Groups checkGroup = null;
-                                using (var context = new Knowledge_controlEntities())
-                                {
-                                    checkGroup = context.Groups.Where(check => check.Name_group == groupOfStudent).FirstOrDefault();
-                                }
-                                if (checkGroup != null)
-                                { 
-                                    
-                                }
 
 
-                                    if (loginOfStudent.Length <= minLengthOfLogin || loginOfStudent.Length >= maxLengthOfLogin || !Regex.IsMatch(loginOfStudent, @"^[\da-z]+$"))
-                            {
-                                textBoxLogin.ToolTip = $"The login is too short, enter more than {minLengthOfLogin} characters or more {maxLengthOfLogin} characters.";
-                                var backgroundColor = new BrushConverter();
-                                textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
-                            }
-                            else
-                            {
-                                textBoxLogin.Background = Brushes.Transparent;
-                                textBoxLogin.ToolTip = null;
-                                if (passwordOfStudent.Length <= minLengthOfPassword || passwordOfStudent.Length >= maxLengthOfPassword || !Regex.IsMatch(passwordOfStudent, @"^[\da-z]+$"))
+
+                                if (loginOfStudent.Length <= minLengthOfLogin || loginOfStudent.Length >= maxLengthOfLogin || !Regex.IsMatch(loginOfStudent, @"^[\da-z]+$"))
                                 {
-                                    passwordBox.ToolTip = $"The password is too short, enter more than {minLengthOfPassword} characters or more {maxLengthOfPassword} characters.";
+                                    textBoxLogin.ToolTip = $"The login is too short, enter more than {minLengthOfLogin} characters or more {maxLengthOfLogin} characters.";
                                     var backgroundColor = new BrushConverter();
-                                    passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+                                    textBoxLogin.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                                 }
                                 else
                                 {
-                                    passwordBox.Background = Brushes.Transparent;
-                                    passwordBox.ToolTip = null;
-                                    if (passwordOfStudent != passwordOfStudentRepeat)
+                                    textBoxLogin.Background = Brushes.Transparent;
+                                    textBoxLogin.ToolTip = null;
+                                    if (passwordOfStudent.Length <= minLengthOfPassword || passwordOfStudent.Length >= maxLengthOfPassword || !Regex.IsMatch(passwordOfStudent, @"^[\da-z]+$"))
                                     {
-                                        passwordBoxCheck.ToolTip = "Passwords don't match.";
+                                        passwordBox.ToolTip = $"The password is too short, enter more than {minLengthOfPassword} characters or more {maxLengthOfPassword} characters.";
                                         var backgroundColor = new BrushConverter();
-                                        passwordBoxCheck.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+                                        passwordBox.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                                     }
                                     else
                                     {
-                                        passwordBoxCheck.Background = Brushes.Transparent;
-                                        passwordBoxCheck.ToolTip = null;
-                                        Students regStudent = null;
-                                        using (var context = new Knowledge_controlEntities())
+                                        passwordBox.Background = Brushes.Transparent;
+                                        passwordBox.ToolTip = null;
+                                        if (passwordOfStudent != passwordOfStudentRepeat)
                                         {
-                                            regStudent = context.Students.Where(check => check.Login == loginOfStudent).FirstOrDefault();
-                                            if (regStudent == null)
-                                            {
-                                                var student = new Students()
-                                                {
-                                                    Last_name = lastNameOfStudent,
-                                                    Name = nameOfStudent,
-                                                    Paronymic = patronymicOfStudent,
-                                                    Gender = comboBoxGender.SelectedItem.ToString(),
-                                                    Number_group = , 
-                                                    Login = loginOfStudent,
-                                                    Password = passwordOfStudent
-                                                };
-                                                context.Teachers.Add(teacher);
-                                                context.SaveChanges();
-
-                                                RecordOfTeachers.recordOfTeachers = context.Teachers.Where(x => x.Login == loginOfStudent).Select(x => x).FirstOrDefault();
-
-                                                Uri Auth = new Uri("Auth.xaml", UriKind.Relative);
-                                                this.NavigationService.Navigate(Auth);
-                                            }
-                                            else
-                                                errorBox.Text = "This login or email is already registered";
+                                            passwordBoxCheck.ToolTip = "Passwords don't match.";
+                                            var backgroundColor = new BrushConverter();
+                                            passwordBoxCheck.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                                         }
+                                        else
+                                        {
+                                            passwordBoxCheck.Background = Brushes.Transparent;
+                                            passwordBoxCheck.ToolTip = null;
+                                            Students regStudent = null;
+                                            using (var context = new Knowledge_controlEntities())
+                                            {
+                                                regStudent = context.Students.Where(check => check.Login == loginOfStudent).FirstOrDefault();
+                                                if (regStudent == null)
+                                                {
+                                                    var student = new Students()
+                                                    {
+                                                        Last_name = lastNameOfStudent,
+                                                        Name = nameOfStudent,
+                                                        Paronymic = patronymicOfStudent,
+                                                        Gender = comboBoxGender.SelectedItem.ToString(),
+                                                        Name_group = groupOfStudent,
+                                                        Login = loginOfStudent,
+                                                        Password = passwordOfStudent
+                                                    };
+                                                    context.Students.Add(student);
+                                                    context.SaveChanges();
 
+                                                    RecordOfStudents.recordOfStudents = context.Students.Where(x => x.Login == loginOfStudent).Select(x => x).FirstOrDefault();
+
+                                                    Uri Auth = new Uri("Auth.xaml", UriKind.Relative);
+                                                    this.NavigationService.Navigate(Auth);
+                                                }
+                                                else
+                                                    errorBox.Text = "Данный логин уже существует.";
+                                            }
+
+                                        }
                                     }
                                 }
                             }

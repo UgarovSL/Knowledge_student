@@ -24,7 +24,6 @@ namespace Knowledge_student
         public string Last_name { get; set; }
         public string Name { get; set; }
         public string Paronymic { get; set; }
-        public int Number_group { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public string Gender { get; set; }
