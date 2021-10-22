@@ -21,13 +21,6 @@
           <Property Name="Number_discipline" Type="int" Nullable="false" />
           <Property Name="Name_discipline" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Groups">
-          <Key>
-            <PropertyRef Name="Number_group" />
-          </Key>
-          <Property Name="Number_group" Type="int" Nullable="false" />
-          <Property Name="Name_group" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Option_answers">
           <Key>
             <PropertyRef Name="Number_option_answer" />
@@ -67,6 +60,7 @@
           <Property Name="Login" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="60" Nullable="false" />
           <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Name_group" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -98,7 +92,6 @@
           <Property Name="Number_discipline" Type="int" Nullable="false" />
           <Property Name="Number_theme" Type="int" Nullable="false" />
           <Property Name="Name_test" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Number_group" Type="int" Nullable="false" />
           <Property Name="Max_point" Type="int" Nullable="false" />
           <Property Name="Number_teacher" Type="int" Nullable="false" />
         </EntityType>
@@ -178,20 +171,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Students_Groups">
-          <End Role="Groups" Type="Self.Groups" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Groups">
-              <PropertyRef Name="Number_group" />
-            </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="Number_group" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Tests_Teachers">
           <End Role="Teachers" Type="Self.Teachers" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -237,7 +216,6 @@
         <EntityContainer Name="Хранилище Knowledge_controlModelContainer">
           <EntitySet Name="Answers" EntityType="Self.Answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Disciplines" EntityType="Self.Disciplines" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Option_answers" EntityType="Self.Option_answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
@@ -265,10 +243,6 @@
           <AssociationSet Name="FK_Results_Tests" Association="Self.FK_Results_Tests">
             <End Role="Tests" EntitySet="Tests" />
             <End Role="Results" EntitySet="Results" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Students_Groups" Association="Self.FK_Students_Groups">
-            <End Role="Groups" EntitySet="Groups" />
-            <End Role="Students" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="FK_Tests_Teachers" Association="Self.FK_Tests_Teachers">
             <End Role="Teachers" EntitySet="Teachers" />
@@ -305,14 +279,6 @@
           <Property Name="Number_discipline" Type="Int32" Nullable="false" />
           <Property Name="Name_discipline" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Themes" Relationship="Self.FK_Themes_Disciplines" FromRole="Disciplines" ToRole="Themes" />
-        </EntityType>
-        <EntityType Name="Groups">
-          <Key>
-            <PropertyRef Name="Number_group" />
-          </Key>
-          <Property Name="Number_group" Type="Int32" Nullable="false" />
-          <Property Name="Name_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Students" Relationship="Self.FK_Students_Groups" FromRole="Groups" ToRole="Students" />
         </EntityType>
         <EntityType Name="Option_answers">
           <Key>
@@ -359,7 +325,7 @@
           <Property Name="Login" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Students_Groups" FromRole="Students" ToRole="Groups" />
+          <Property Name="Name_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Results" Relationship="Self.FK_Results_Students" FromRole="Students" ToRole="Results" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -393,7 +359,6 @@
           <Property Name="Number_discipline" Type="Int32" Nullable="false" />
           <Property Name="Number_theme" Type="Int32" Nullable="false" />
           <Property Name="Name_test" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Number_group" Type="Int32" Nullable="false" />
           <Property Name="Max_point" Type="Int32" Nullable="false" />
           <Property Name="Number_teacher" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Results" Relationship="Self.FK_Results_Tests" FromRole="Tests" ToRole="Results" />
@@ -436,20 +401,6 @@
             </Principal>
             <Dependent Role="Themes">
               <PropertyRef Name="Number_discipline" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Students_Groups">
-          <End Role="Groups" Type="Self.Groups" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Groups">
-              <PropertyRef Name="Number_group" />
-            </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="Number_group" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -538,7 +489,6 @@
         <EntityContainer Name="Knowledge_controlEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Answers" EntityType="Self.Answers" />
           <EntitySet Name="Disciplines" EntityType="Self.Disciplines" />
-          <EntitySet Name="Groups" EntityType="Self.Groups" />
           <EntitySet Name="Option_answers" EntityType="Self.Option_answers" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
           <EntitySet Name="Results" EntityType="Self.Results" />
@@ -554,10 +504,6 @@
           <AssociationSet Name="FK_Themes_Disciplines" Association="Self.FK_Themes_Disciplines">
             <End Role="Disciplines" EntitySet="Disciplines" />
             <End Role="Themes" EntitySet="Themes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Students_Groups" Association="Self.FK_Students_Groups">
-            <End Role="Groups" EntitySet="Groups" />
-            <End Role="Students" EntitySet="Students" />
           </AssociationSet>
           <AssociationSet Name="FK_Option_answers_Questions" Association="Self.FK_Option_answers_Questions">
             <End Role="Questions" EntitySet="Questions" />
@@ -608,14 +554,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="Knowledge_controlModel.Groups">
-              <MappingFragment StoreEntitySet="Groups">
-                <ScalarProperty Name="Number_group" ColumnName="Number_group" />
-                <ScalarProperty Name="Name_group" ColumnName="Name_group" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Option_answers">
             <EntityTypeMapping TypeName="Knowledge_controlModel.Option_answers">
               <MappingFragment StoreEntitySet="Option_answers">
@@ -657,6 +595,7 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Name_group" ColumnName="Name_group" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -691,7 +630,6 @@
                 <ScalarProperty Name="Number_discipline" ColumnName="Number_discipline" />
                 <ScalarProperty Name="Number_theme" ColumnName="Number_theme" />
                 <ScalarProperty Name="Name_test" ColumnName="Name_test" />
-                <ScalarProperty Name="Number_group" ColumnName="Number_group" />
                 <ScalarProperty Name="Max_point" ColumnName="Max_point" />
                 <ScalarProperty Name="Number_teacher" ColumnName="Number_teacher" />
               </MappingFragment>

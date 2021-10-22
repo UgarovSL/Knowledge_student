@@ -28,8 +28,8 @@ namespace Knowledge_student
         public string Login { get; set; }
         public string Password { get; set; }
         public string Gender { get; set; }
+        public string Name_group { get; set; }
     
-        public virtual Groups Groups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Results> Results { get; set; }
     }

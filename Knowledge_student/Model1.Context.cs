@@ -27,7 +27,6 @@ namespace Knowledge_student
     
         public virtual DbSet<Answers> Answers { get; set; }
         public virtual DbSet<Disciplines> Disciplines { get; set; }
-        public virtual DbSet<Groups> Groups { get; set; }
         public virtual DbSet<Option_answers> Option_answers { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Results> Results { get; set; }

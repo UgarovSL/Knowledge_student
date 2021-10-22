@@ -24,7 +24,6 @@ namespace Knowledge_student
         public int Number_discipline { get; set; }
         public int Number_theme { get; set; }
         public string Name_test { get; set; }
-        public int Number_group { get; set; }
         public int Max_point { get; set; }
         public int Number_teacher { get; set; }
     
