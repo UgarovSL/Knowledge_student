@@ -40,7 +40,7 @@ namespace Knowledge_student
         private void btnCreateTheme(object sender, RoutedEventArgs e)
         {
             string Dis_Number = textBoxNumberDiscipline.Text.Trim().ToLower();
-            string Nametheme = textBoxNameThemes.Text.Trim().ToLower();
+            string Nametheme = textBoxNameThemes.Text.Trim();
 
 
             if (!Regex.IsMatch(Dis_Number, @"[\d0-9]"))

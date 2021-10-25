@@ -43,7 +43,7 @@
                     <Button x:Name = "btnTableDis" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр дисциплин" FontSize = "15" Margin = "1490,262,0,-212" IsDefault="True"   BorderBrush = "{x:Null}" Click="BTChechDis"/>
 
 
-                    <Button x:Name = "btnCreateTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Готово" FontSize = "15" 
+                    <Button x:Name = "btnCreateThemes" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Готово" FontSize = "15" 
                             Height = "35" Margin = "0,768,1490,-703" IsDefault="True"  BorderBrush = "{x:Null}" Click="btnCreateTheme"/>
 
                 </Grid>
