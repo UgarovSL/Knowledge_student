@@ -28,7 +28,7 @@ namespace Knowledge_student
         private void BTChechDis(object sender, RoutedEventArgs e)
         {
 
-            Uri checkDis = new Uri("Check_Dis.xaml", UriKind.Relative);
+            Uri checkDis = new Uri("Table_dis.xaml", UriKind.Relative);
             this.NavigationService.Navigate(checkDis);
         }
     }

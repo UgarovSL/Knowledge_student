@@ -28,8 +28,8 @@ namespace Knowledge_student
 
         private void CB(object sender, RoutedEventArgs e)
         {
-            Uri createTest = new Uri("CreateTest.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(createTest);
+            Uri createTheme = new Uri("CreateTheme.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(createTheme);
         }
     }
 }
