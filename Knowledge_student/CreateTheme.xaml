@@ -44,7 +44,7 @@
 
 
                     <Button x:Name = "btnCreateTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Готово" FontSize = "15" 
-                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True"  BorderBrush = "{x:Null}" Click="btnCreateTheme"/>
 
                 </Grid>
 
