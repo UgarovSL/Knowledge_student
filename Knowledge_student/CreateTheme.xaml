@@ -32,17 +32,19 @@
 
                     <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
                                Text = "Создание темы"/>
+                    <Label Content="Введите название темы:" RenderTransformOrigin="0.492,2.053" Margin="0,152,430,-82" FontSize="14"/>
+                    <TextBox x:Name = "textBoxNameThemes" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,182,0,-132"/>
+                    <Label Content="Введите номер дисциплины:" RenderTransformOrigin="0.492,2.053" Margin="0,232,430,-162" FontSize="14"/>
+                    <TextBox x:Name = "textBoxNumberDiscipline" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,262,303,-212"/>
+
+                    <Button x:Name = "btnExitMenu" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "btnTableDis" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр дисциплин" FontSize = "15" Margin = "1490,262,0,-212" IsDefault="True"   BorderBrush = "{x:Null}"/>
 
 
-                    <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Что-то" FontSize = "15" 
-                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True"   BorderBrush = "{x:Null}"/>
-
-
-                    <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
-                            Height = "35" Margin = "0,524,1490,-459" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "backBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад к выбору" FontSize = "15" 
-                            Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "btnCreateTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Готово" FontSize = "15" 
+                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True"  BorderBrush = "{x:Null}"/>
 
                 </Grid>
 
