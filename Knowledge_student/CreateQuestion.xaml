@@ -34,16 +34,14 @@
                                Text = "Создание вопроса"/>
 
 
-                    <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Что-то" FontSize = "15" 
-                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "Exit" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "SaveQ" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Сохранить вопрос" FontSize = "15" 
+                            Height = "35" Margin = "0,722,1490,-657" IsDefault="True"   BorderBrush = "{x:Null}"/>
 
 
-                    <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
-                            Height = "35" Margin = "0,524,1490,-459" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "backBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад к выбору" FontSize = "15" 
-                            Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
-
+                    <Button x:Name = "AddAnswer" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Добавить вариант ответа" FontSize = "15" 
+                            Height = "35" Margin = "1456,722,34,-657" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                   
                 </Grid>
 
             </StackPanel>
