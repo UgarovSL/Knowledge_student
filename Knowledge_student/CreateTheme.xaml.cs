@@ -14,11 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Knowledge_student
 {
     /// <summary>
     /// Логика взаимодействия для CreateTheme.xaml
     /// </summary>
+    /// 
+    public static class RecordOfTheme
+    {
+        public static Themes recordOfTheme;
+    }
     public partial class CreateTheme : Page
     {
         public static class DisRecord
@@ -67,35 +73,48 @@ namespace Knowledge_student
                 textBoxNameThemes.Background = Brushes.Transparent;
                 textBoxNameThemes.ToolTip = null;
               
+                
+
                 Themes addThemes = null;
                 using (var context = new Knowledge_controlEntities())
                 {
+
                     string lor = Dis_Number.ToString();
                     int r = Convert.ToInt32(lor);
-                    addThemes = context.Themes.Where(check => check.Number_discipline == r).FirstOrDefault();
-                
-                    if (addThemes == null)
+                    if (context.Disciplines.Where(x => x.Number_discipline == r).Select(x => x).Count() > 0)
                     {
-                        var themes = new Themes()
+                        
+
+                        addThemes = context.Themes.Where(check => check.Name_theme == Nametheme).FirstOrDefault();
+
+                        if (addThemes == null)
                         {
-                            Number_discipline = r,
-                            Name_theme = Nametheme,
+                            var themes = new Themes()
+                            {
+                                Number_discipline = r,
+                                Name_theme = Nametheme,
 
-                        };
-                        context.Themes.Add(themes);
-                        context.SaveChanges();
+                            };
+                            context.Themes.Add(themes);
+                            context.SaveChanges();
 
-                        DisRecord.disRecord = context.Disciplines.Where(x => x.Number_discipline == r).Select(x => x).FirstOrDefault();
+                            RecordOfTheme.recordOfTheme = context.Themes.Where(x => x.Name_theme == Nametheme).Select(x => x).FirstOrDefault();
+                            /// DisRecord.disRecord = context.Disciplines.Where(x => x.Number_discipline == r).Select(x => x).FirstOrDefault();
 
+
+                        }
+
+
+                        else
+
+                            MessageBox.Show("Эта тема уже существует");
 
                     }
-
-
                     else
-
                         MessageBox.Show("Эта тема уже существует");
+                } 
+                
 
-                }
 
             }
         }

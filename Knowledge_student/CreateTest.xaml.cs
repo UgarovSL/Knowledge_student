@@ -68,7 +68,7 @@ namespace Knowledge_student
                 textBoxNumberDiscipline.ToolTip = null;
             }
 
-            if ( !Regex.IsMatch(disNumber, @"[\d0-9]"))
+            if (!Regex.IsMatch(disNumber, @"[\d0-9]"))
             {
 
                 textBoxNumberTheme.ToolTip = "Некорректно введен номер темы.";
@@ -80,7 +80,7 @@ namespace Knowledge_student
                 textBoxNumberTheme.Background = Brushes.Transparent;
                 textBoxNumberTheme.ToolTip = null;
             }
-            if (nameTests.Length >=maxLenghtName || nameTests.Length <= minLengthName || !Regex.IsMatch(nameTests, @"[\dа-я]"))
+            if (nameTests.Length >= maxLenghtName || nameTests.Length <= minLengthName || !Regex.IsMatch(nameTests, @"[\dа-я]"))
             {
 
                 textBoxNameTest.ToolTip = "Некорректно введено название теста.";
@@ -116,6 +116,8 @@ namespace Knowledge_student
             {
                 textBoxNumberTeacher.Background = Brushes.Transparent;
                 textBoxNumberTeacher.ToolTip = null;
+            }
+        }
 
 
 
