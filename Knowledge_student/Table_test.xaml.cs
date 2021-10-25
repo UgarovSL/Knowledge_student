@@ -16,19 +16,15 @@ using System.Windows.Shapes;
 namespace Knowledge_student
 {
     /// <summary>
-    /// Логика взаимодействия для StudentMenu.xaml
+    /// Логика взаимодействия для Table_test.xaml
     /// </summary>
-    public partial class StudentMenu : Page
+    public partial class Table_test : Page
     {
-        public StudentMenu()
+        public Table_test()
         {
             InitializeComponent();
+            DGTest.ItemsSource = Knowledge_controlEntities.GetContext().Table_for_tests.ToList();  
         }
-
-        private void BTNGoTest(object sender, RoutedEventArgs e)
-        {
-            Uri tableTests = new Uri("Table_test.xaml", UriKind.Relative);
-            this.NavigationService.Navigate(tableTests);
-        }
+        
     }
 }

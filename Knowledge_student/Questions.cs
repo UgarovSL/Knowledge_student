@@ -14,12 +14,6 @@ namespace Knowledge_student
     
     public partial class Questions
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Questions()
-        {
-            this.Option_answers = new HashSet<Option_answers>();
-        }
-    
         public int Number_question { get; set; }
         public string Question { get; set; }
         public int Number_theme { get; set; }
@@ -27,8 +21,6 @@ namespace Knowledge_student
         public int Points { get; set; }
         public int Number_test { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Option_answers> Option_answers { get; set; }
         public virtual Tests Tests { get; set; }
         public virtual Themes Themes { get; set; }
     }

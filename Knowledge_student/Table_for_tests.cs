@@ -12,12 +12,13 @@ namespace Knowledge_student
     using System;
     using System.Collections.Generic;
     
-    public partial class Option_answers
+    public partial class Table_for_tests
     {
-        public int Number_option_answer { get; set; }
-        public int Number_quesion { get; set; }
-        public string Option_answer { get; set; }
-    
-        public virtual Questions Questions { get; set; }
+        public int Number_test { get; set; }
+        public string Name_test { get; set; }
+        public string Name_discipline { get; set; }
+        public string Name_theme { get; set; }
+        public int Max_point { get; set; }
+        public string Name_teacher { get; set; }
     }
 }

@@ -1,12 +1,12 @@
-﻿<Page x:Class="Knowledge_student.Table_Theme"
+﻿<Page x:Class="Knowledge_student.TableTheme"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Knowledge_student"
       mc:Ignorable="d" 
-      d:DesignHeight="1000" d:DesignWidth="1920"
-      Title="Table_Theme">
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="TableTheme">
 
     <Grid Background = "#249140">
         <Grid Background = "#249140" Margin="0 0 0 0"/>

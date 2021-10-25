@@ -75,24 +75,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="TableDis.xaml.cs">
-      <DependentUpon>TableDis.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Table_Dis.xaml.cs">
-      <DependentUpon>Table_Dis.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CreateQuestion.xaml.cs">
-      <DependentUpon>CreateQuestion.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CreateTest.xaml.cs">
-      <DependentUpon>CreateTest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CreateTheme.xaml.cs">
-      <DependentUpon>CreateTheme.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CteateDis.xaml.cs">
-      <DependentUpon>CteateDis.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Disciplines.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -111,11 +93,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Option_answers.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Questions.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Results.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Students.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TableDis.xaml.cs">
+      <DependentUpon>TableDis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TableTest.xaml.cs">
+      <DependentUpon>TableTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TableTheme.xaml.cs">
+      <DependentUpon>TableTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Table_Dis.xaml.cs">
+      <DependentUpon>Table_Dis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateQuestion.xaml.cs">
+      <DependentUpon>CreateQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTest.xaml.cs">
+      <DependentUpon>CreateTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTheme.xaml.cs">
+      <DependentUpon>CreateTheme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CteateDis.xaml.cs">
+      <DependentUpon>CteateDis.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegisterStudents.xaml.cs">
       <DependentUpon>RegisterStudents.xaml</DependentUpon>
@@ -126,20 +138,17 @@
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Results.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="StudentMenu.xaml.cs">
       <DependentUpon>StudentMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Students.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
+    <Compile Include="Table_for_tests.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Table_Teatcher.xaml.cs">
       <DependentUpon>Table_Teatcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Table_test.xaml.cs">
+      <DependentUpon>Table_test.xaml</DependentUpon>
     </Compile>
     <Compile Include="Table_Theme.xaml.cs">
       <DependentUpon>Table_Theme.xaml</DependentUpon>
@@ -203,6 +212,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TableTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TableTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Table_Dis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -240,6 +257,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Table_Teatcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Table_test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

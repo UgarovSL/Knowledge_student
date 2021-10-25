@@ -38,7 +38,7 @@
                     <Label Content="Введите номер темы:" RenderTransformOrigin="0.492,2.053" Margin="0,232,430,-162" FontSize="14"/>
                     <TextBox x:Name = "textBoxNumberTheme" Foreground = "Black" FontWeight = "Bold"
                              Margin = "0,262,303,-212"/>
-                    <Button x:Name = "btnTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр тем" FontSize = "15" Margin = "1490,262,0,-212" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
+                    <Button x:Name = "btnTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр тем" FontSize = "15" Margin = "1490,262,0,-212" IsDefault="True" Click="TT" BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
                     <Label Content="Введите ответ:" RenderTransformOrigin="0.492,2.053" Margin="0,312,430,-242" FontSize="14"/>
                     <TextBox x:Name = "textBoxAnswer" Foreground = "Black" FontWeight = "Bold"
                              Margin = "0,342,303,-292"/>
@@ -48,7 +48,7 @@
                     <Label Content="Введите номер теста:" RenderTransformOrigin="0.492,2.053" Margin="0,482,430,-412" FontSize="14"/>
                     <TextBox x:Name = "textBoxNumberTest" Foreground = "Black" FontWeight = "Bold"
                              Margin = "0,512,303,-462"/>
-                    <Button x:Name = "btnTest" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр тестов" FontSize = "15" Margin = "1490,512,0,-462" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
+                    <Button x:Name = "btnTest" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр тестов" FontSize = "15" Margin = "1490,512,0,-462" IsDefault="True" Click="TTe" BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
 
 
                     <Button x:Name = "Exit" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>

@@ -34,6 +34,18 @@ namespace Knowledge_student
         const int maxLenghtName = 50;
         const int maxMaxPoint = 4;
 
+        private void TT (object sender, RoutedEventArgs e)
+        {
+            Uri tableTheme = new Uri("TableTheme.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(tableTheme);
+        }
+
+        private void TTe(object sender, RoutedEventArgs e)
+        {
+            Uri tableTest = new Uri("TableTest.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(tableTest);
+        }
+
         private void BtnCreateQuestion(object sender, RoutedEventArgs e)
         {
             string nameQuestion = textBoxNameQue.Text.Trim();

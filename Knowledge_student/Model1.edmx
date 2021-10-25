@@ -12,14 +12,6 @@
           <Property Name="Number_discipline" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_discipline" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <EntityType Name="Option_answers">
-          <Key>
-            <PropertyRef Name="Number_option_answer" />
-          </Key>
-          <Property Name="Number_option_answer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Number_quesion" Type="int" Nullable="false" />
-          <Property Name="Option_answer" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
         <EntityType Name="Questions">
           <Key>
             <PropertyRef Name="Number_question" />
@@ -95,20 +87,24 @@
           <Property Name="Name_theme" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Number_discipline" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Option_answers_Questions">
-          <End Role="Questions" Type="Self.Questions" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Option_answers" Type="Self.Option_answers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questions">
-              <PropertyRef Name="Number_question" />
-            </Principal>
-            <Dependent Role="Option_answers">
-              <PropertyRef Name="Number_quesion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Knowledge_control.dbo.Table_for_tests" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="Table_for_tests">
+          <Key>
+            <PropertyRef Name="Number_test" />
+            <PropertyRef Name="Name_test" />
+            <PropertyRef Name="Name_discipline" />
+            <PropertyRef Name="Name_theme" />
+            <PropertyRef Name="Max_point" />
+            <PropertyRef Name="Name_teacher" />
+          </Key>
+          <Property Name="Number_test" Type="int" Nullable="false" />
+          <Property Name="Name_test" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name_discipline" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name_theme" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Max_point" Type="int" Nullable="false" />
+          <Property Name="Name_teacher" Type="varchar" MaxLength="47" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Questions_Tests">
           <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
           <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
@@ -205,7 +201,6 @@
         </Association>
         <EntityContainer Name="Хранилище Knowledge_controlModelContainer">
           <EntitySet Name="Disciplines" EntityType="Self.Disciplines" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Option_answers" EntityType="Self.Option_answers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
@@ -213,10 +208,16 @@
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tests" EntityType="Self.Tests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Themes" EntityType="Self.Themes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Option_answers_Questions" Association="Self.FK_Option_answers_Questions">
-            <End Role="Questions" EntitySet="Questions" />
-            <End Role="Option_answers" EntitySet="Option_answers" />
-          </AssociationSet>
+          <EntitySet Name="Table_for_tests" EntityType="Self.Table_for_tests" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Table_for_tests].[Number_test] AS [Number_test], 
+    [Table_for_tests].[Name_test] AS [Name_test], 
+    [Table_for_tests].[Name_discipline] AS [Name_discipline], 
+    [Table_for_tests].[Name_theme] AS [Name_theme], 
+    [Table_for_tests].[Max_point] AS [Max_point], 
+    [Table_for_tests].[Name_teacher] AS [Name_teacher]
+    FROM [dbo].[Table_for_tests] AS [Table_for_tests]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Questions_Tests" Association="Self.FK_Questions_Tests">
             <End Role="Tests" EntitySet="Tests" />
             <End Role="Questions" EntitySet="Questions" />
@@ -259,15 +260,6 @@
           <Property Name="Name_discipline" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Themes" Relationship="Self.FK_Themes_Disciplines" FromRole="Disciplines" ToRole="Themes" />
         </EntityType>
-        <EntityType Name="Option_answers">
-          <Key>
-            <PropertyRef Name="Number_option_answer" />
-          </Key>
-          <Property Name="Number_option_answer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Number_quesion" Type="Int32" Nullable="false" />
-          <Property Name="Option_answer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Option_answers_Questions" FromRole="Option_answers" ToRole="Questions" />
-        </EntityType>
         <EntityType Name="Questions">
           <Key>
             <PropertyRef Name="Number_question" />
@@ -278,7 +270,6 @@
           <Property Name="Answers" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Points" Type="Int32" Nullable="false" />
           <Property Name="Number_test" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Option_answers" Relationship="Self.FK_Option_answers_Questions" FromRole="Questions" ToRole="Option_answers" />
           <NavigationProperty Name="Tests" Relationship="Self.FK_Questions_Tests" FromRole="Questions" ToRole="Tests" />
           <NavigationProperty Name="Themes" Relationship="Self.FK_Questions_Themes" FromRole="Questions" ToRole="Themes" />
         </EntityType>
@@ -357,6 +348,22 @@
           <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Themes" FromRole="Themes" ToRole="Questions" />
           <NavigationProperty Name="Tests" Relationship="Self.FK_Tests_Themes" FromRole="Themes" ToRole="Tests" />
         </EntityType>
+        <EntityType Name="Table_for_tests">
+          <Key>
+            <PropertyRef Name="Number_test" />
+            <PropertyRef Name="Name_test" />
+            <PropertyRef Name="Name_discipline" />
+            <PropertyRef Name="Name_theme" />
+            <PropertyRef Name="Max_point" />
+            <PropertyRef Name="Name_teacher" />
+          </Key>
+          <Property Name="Number_test" Type="Int32" Nullable="false" />
+          <Property Name="Name_test" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_discipline" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name_theme" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Max_point" Type="Int32" Nullable="false" />
+          <Property Name="Name_teacher" Type="String" MaxLength="47" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <Association Name="FK_Themes_Disciplines">
           <End Role="Disciplines" Type="Self.Disciplines" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -368,20 +375,6 @@
             </Principal>
             <Dependent Role="Themes">
               <PropertyRef Name="Number_discipline" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Option_answers_Questions">
-          <End Role="Questions" Type="Self.Questions" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Option_answers" Type="Self.Option_answers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questions">
-              <PropertyRef Name="Number_question" />
-            </Principal>
-            <Dependent Role="Option_answers">
-              <PropertyRef Name="Number_quesion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -467,7 +460,6 @@
         </Association>
         <EntityContainer Name="Knowledge_controlEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Disciplines" EntityType="Self.Disciplines" />
-          <EntitySet Name="Option_answers" EntityType="Self.Option_answers" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
           <EntitySet Name="Results" EntityType="Self.Results" />
           <EntitySet Name="Students" EntityType="Self.Students" />
@@ -475,13 +467,10 @@
           <EntitySet Name="Teachers" EntityType="Self.Teachers" />
           <EntitySet Name="Tests" EntityType="Self.Tests" />
           <EntitySet Name="Themes" EntityType="Self.Themes" />
+          <EntitySet Name="Table_for_tests" EntityType="Self.Table_for_tests" />
           <AssociationSet Name="FK_Themes_Disciplines" Association="Self.FK_Themes_Disciplines">
             <End Role="Disciplines" EntitySet="Disciplines" />
             <End Role="Themes" EntitySet="Themes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Option_answers_Questions" Association="Self.FK_Option_answers_Questions">
-            <End Role="Questions" EntitySet="Questions" />
-            <End Role="Option_answers" EntitySet="Option_answers" />
           </AssociationSet>
           <AssociationSet Name="FK_Questions_Tests" Association="Self.FK_Questions_Tests">
             <End Role="Tests" EntitySet="Tests" />
@@ -519,15 +508,6 @@
               <MappingFragment StoreEntitySet="Disciplines">
                 <ScalarProperty Name="Number_discipline" ColumnName="Number_discipline" />
                 <ScalarProperty Name="Name_discipline" ColumnName="Name_discipline" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Option_answers">
-            <EntityTypeMapping TypeName="Knowledge_controlModel.Option_answers">
-              <MappingFragment StoreEntitySet="Option_answers">
-                <ScalarProperty Name="Number_option_answer" ColumnName="Number_option_answer" />
-                <ScalarProperty Name="Number_quesion" ColumnName="Number_quesion" />
-                <ScalarProperty Name="Option_answer" ColumnName="Option_answer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -610,6 +590,18 @@
                 <ScalarProperty Name="Number_theme" ColumnName="Number_theme" />
                 <ScalarProperty Name="Name_theme" ColumnName="Name_theme" />
                 <ScalarProperty Name="Number_discipline" ColumnName="Number_discipline" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_for_tests">
+            <EntityTypeMapping TypeName="Knowledge_controlModel.Table_for_tests">
+              <MappingFragment StoreEntitySet="Table_for_tests">
+                <ScalarProperty Name="Number_test" ColumnName="Number_test" />
+                <ScalarProperty Name="Name_test" ColumnName="Name_test" />
+                <ScalarProperty Name="Name_discipline" ColumnName="Name_discipline" />
+                <ScalarProperty Name="Name_theme" ColumnName="Name_theme" />
+                <ScalarProperty Name="Max_point" ColumnName="Max_point" />
+                <ScalarProperty Name="Name_teacher" ColumnName="Name_teacher" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

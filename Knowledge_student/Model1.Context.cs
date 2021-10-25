@@ -7,19 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace Knowledge_student
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
+
     public partial class Knowledge_controlEntities : DbContext
     {
         private static Knowledge_controlEntities context;
         public Knowledge_controlEntities()
             : base("name=Knowledge_controlEntities")
         {
+
         }
+
         public static Knowledge_controlEntities GetContext()
         {
             if (context == null)
@@ -31,8 +35,8 @@ namespace Knowledge_student
             throw new UnintentionalCodeFirstException();
         }
     
+       
         public virtual DbSet<Disciplines> Disciplines { get; set; }
-        public virtual DbSet<Option_answers> Option_answers { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Results> Results { get; set; }
         public virtual DbSet<Students> Students { get; set; }
@@ -40,5 +44,6 @@ namespace Knowledge_student
         public virtual DbSet<Teachers> Teachers { get; set; }
         public virtual DbSet<Tests> Tests { get; set; }
         public virtual DbSet<Themes> Themes { get; set; }
+        public virtual DbSet<Table_for_tests> Table_for_tests { get; set; }
     }
 }

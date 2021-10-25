@@ -31,8 +31,8 @@
 
 
                     <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Что-то" FontSize = "15" 
-                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Пройти тест" FontSize = "15" 
+                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True" Click="BTNGoTest"  BorderBrush = "{x:Null}"/>
 
 
                     <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
