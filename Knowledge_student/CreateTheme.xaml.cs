@@ -24,5 +24,8 @@ namespace Knowledge_student
         {
             InitializeComponent();
         }
+
+
+
     }
 }

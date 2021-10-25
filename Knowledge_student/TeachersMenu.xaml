@@ -17,20 +17,30 @@
             </Border.Effect>
             <StackPanel>
                 <Grid>
+                    <Grid Margin="0,166,0,-703" Height="637" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33*"/>
+                            <ColumnDefinition Width="887*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/Resourse/KS.png"></ImageBrush>
+                        </Grid.Background>
+                    </Grid>
 
-                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
-                               Text = "Регистрация"/>
+
+                    <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "825,0,825,60"
+                               Text = "Главное меню"/>
 
 
-                    <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создание теста" FontSize = "15" 
-                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "1487,166,3,-101" IsDefault="True"   BorderBrush = "{x:Null}"/>
 
 
-                    <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
-                            Height = "35" Margin = "0,524,1490,-459" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                    <Button x:Name = "backBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад к выбору" FontSize = "15" 
-                            Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "btnForCreateDis" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создание дисциплины" FontSize = "15" 
+                            Height = "35" Margin = "0,166,1490,-101" IsDefault="True" Click="Button_For_Create_Dis" BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "btnForCreateTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создание темы" FontSize = "15" 
+                            Height = "35" Margin = "745,166,745,-101" IsDefault="True" Click="Button_For_Create_Theme"  BorderBrush = "{x:Null}"/>
 
                 </Grid>
             </StackPanel>

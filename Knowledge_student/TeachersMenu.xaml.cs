@@ -24,5 +24,18 @@ namespace Knowledge_student
         {
             InitializeComponent();
         }
+
+        private void Button_For_Create_Dis(object sender, RoutedEventArgs e)
+        {
+            Uri CreateDis = new Uri("CreateDis.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(CreateDis);
+        }
+
+        private void Button_For_Create_Theme(object sender, RoutedEventArgs e)
+        {
+            Uri CreateTheme = new Uri("CreateTheme.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(CreateTheme);
+        }
+
     }
 }

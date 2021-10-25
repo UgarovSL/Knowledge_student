@@ -36,11 +36,11 @@
 
                     <Button x:Name = "BTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "BT" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Что-то" FontSize = "15" 
-                            Height = "35" Margin = "0,363,1490,-298" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "1377,615,113,-550" IsDefault="True"   BorderBrush = "{x:Null}"/>
 
 
                     <Button x:Name = "regStudBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Заругистрироваться" FontSize = "15" 
-                            Height = "35" Margin = "0,524,1490,-459" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "515,709,975,-644" IsDefault="True"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "backBTN" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад к выбору" FontSize = "15" 
                             Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
 
