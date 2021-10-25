@@ -25,6 +25,12 @@ namespace Knowledge_student
             InitializeComponent();
         }
 
+        private void Button_For_Create_Question(object sender, RoutedEventArgs e)
+        {
+            Uri CreateQue = new Uri("CreateQuestion.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(CreateQue);
+        }
+
         private void Button_For_Create_Dis(object sender, RoutedEventArgs e)
         {
             Uri CreateDis = new Uri("CteateDis.xaml", UriKind.Relative);

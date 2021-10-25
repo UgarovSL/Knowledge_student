@@ -53,7 +53,7 @@
 
                     <Button x:Name = "Exit" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
                     <Button x:Name = "SaveQ" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Сохранить вопрос" FontSize = "15" 
-                            Height = "35" Margin = "0,722,1490,-657" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "0,722,1490,-657" IsDefault="True" Click="BtnCreateQuestion"  BorderBrush = "{x:Null}"/>
 
                 </Grid>
 

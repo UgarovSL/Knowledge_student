@@ -71,112 +71,116 @@ namespace Knowledge_student
             {
                 textBoxNumberDiscipline.Background = Brushes.Transparent;
                 textBoxNumberDiscipline.ToolTip = null;
-            }
 
-            if (!Regex.IsMatch(numberTheme, @"[\d0-9]"))
-            {
 
-                textBoxNumberTheme.ToolTip = "Некорректно введен номер темы.";
-                var backgroundColor = new BrushConverter();
-                textBoxNumberTheme.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
-            }
-            else
-            {
-                textBoxNumberTheme.Background = Brushes.Transparent;
-                textBoxNumberTheme.ToolTip = null;
-            }
-            if (nameTests.Length >= maxLenghtName || nameTests.Length <= minLengthName || !Regex.IsMatch(nameTests, @"[\dа-я]"))
-            {
-
-                textBoxNameTest.ToolTip = "Некорректно введено название теста.";
-                var backgroundColor = new BrushConverter();
-                textBoxNameTest.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
-            }
-            else
-            {
-                textBoxNameTest.Background = Brushes.Transparent;
-                textBoxNameTest.ToolTip = null;
-            }
-
-            if (maxPoint.Length >= maxMaxPoint || !Regex.IsMatch(maxPoint, @"[\d0-9]"))
-            {
-
-                textBoxMaxPoint.ToolTip = "Некорректно введено кол-во баллов.";
-                var backgroundColor = new BrushConverter();
-                textBoxMaxPoint.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
-            }
-            else
-            {
-                textBoxMaxPoint.Background = Brushes.Transparent;
-                textBoxMaxPoint.ToolTip = null;
-            }
-            if (!Regex.IsMatch(numberTeacher, @"[\d0-9]"))
-            {
-
-                textBoxNumberTeacher.ToolTip = "Некорректно введен номер преподавателя.";
-                var backgroundColor = new BrushConverter();
-                textBoxNumberTeacher.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
-            }
-            else
-            {
-                textBoxNumberTeacher.Background = Brushes.Transparent;
-                textBoxNumberTeacher.ToolTip = null;
-                Tests addTests = null;
-                using (var context = new Knowledge_controlEntities())
+                if (!Regex.IsMatch(numberTheme, @"[\d0-9]"))
                 {
 
+                    textBoxNumberTheme.ToolTip = "Некорректно введен номер темы.";
+                    var backgroundColor = new BrushConverter();
+                    textBoxNumberTheme.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+                }
+                else
+                {
+                    textBoxNumberTheme.Background = Brushes.Transparent;
+                    textBoxNumberTheme.ToolTip = null;
 
-                    int intDisNumber = Convert.ToInt32(disNumber);
-                    int intNumberTheme = Convert.ToInt32(numberTheme);
-                    int intNumberTeacher = Convert.ToInt32(numberTeacher);
-                    int intMaxPoint = Convert.ToInt32(maxPoint);
-
-
-
-                    if (context.Disciplines.Where(x => x.Number_discipline == intDisNumber).Select(x => x).Count() > 0)
+                    if (nameTests.Length >= maxLenghtName || nameTests.Length <= minLengthName || !Regex.IsMatch(nameTests, @"[\dа-я]"))
                     {
-                        if (context.Themes.Where(x => x.Number_theme == intNumberTheme).Select(x => x).Count() > 0)
-                        {
-                            if (context.Teachers.Where(x => x.Number_teacher == intNumberTeacher).Select(x => x).Count() > 0)
-                            {
 
-
-                                addTests = context.Tests.Where(check => check.Name_test == nameTests).FirstOrDefault();
-
-                                if (addTests == null)
-                                {
-                                    var tests = new Tests()
-                                    {
-                                        Number_discipline = intDisNumber,
-                                        Number_theme = intNumberTheme,
-                                        Name_test = nameTests,
-                                        Max_point = intMaxPoint,
-                                        Number_teacher = intNumberTeacher
-
-                                    };
-                                    context.Tests.Add(tests);
-                                    context.SaveChanges();
-
-
-                                    RecordOfTests.recordOfTests = context.Tests.Where(x => x.Name_test == nameTests).Select(x => x).FirstOrDefault();
-
-
-                                }
-
-
-                                else
-
-                                    MessageBox.Show("Этот тест уже существует");
-
-                            }
-                            else
-                                MessageBox.Show("Такой дисциплины не сущетсвует");
-                        }
-                        else
-                            MessageBox.Show("Такой темы не сущетсвует");
+                        textBoxNameTest.ToolTip = "Некорректно введено название теста.";
+                        var backgroundColor = new BrushConverter();
+                        textBoxNameTest.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                     }
                     else
-                        MessageBox.Show("Такого преподавателя не сущетсвует");
+                    {
+                        textBoxNameTest.Background = Brushes.Transparent;
+                        textBoxNameTest.ToolTip = null;
+
+
+                        if (maxPoint.Length >= maxMaxPoint || !Regex.IsMatch(maxPoint, @"[\d0-9]"))
+                        {
+
+                            textBoxMaxPoint.ToolTip = "Некорректно введено кол-во баллов.";
+                            var backgroundColor = new BrushConverter();
+                            textBoxMaxPoint.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+                        }
+                        else
+                        {
+                            textBoxMaxPoint.Background = Brushes.Transparent;
+                            textBoxMaxPoint.ToolTip = null;
+
+                            if (!Regex.IsMatch(numberTeacher, @"[\d0-9]"))
+                            {
+
+                                textBoxNumberTeacher.ToolTip = "Некорректно введен номер преподавателя.";
+                                var backgroundColor = new BrushConverter();
+                                textBoxNumberTeacher.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+                            }
+                            else
+                            {
+                                textBoxNumberTeacher.Background = Brushes.Transparent;
+                                textBoxNumberTeacher.ToolTip = null;
+                                Tests addTests = null;
+                                using (var context = new Knowledge_controlEntities())
+                                {
+
+
+                                    int intDisNumber = Convert.ToInt32(disNumber);
+                                    int intNumberTheme = Convert.ToInt32(numberTheme);
+                                    int intNumberTeacher = Convert.ToInt32(numberTeacher);
+                                    int intMaxPoint = Convert.ToInt32(maxPoint);
+
+
+
+                                    if (context.Disciplines.Where(x => x.Number_discipline == intDisNumber).Select(x => x).Count() > 0)
+                                    {
+                                        if (context.Themes.Where(x => x.Number_theme == intNumberTheme).Select(x => x).Count() > 0)
+                                        {
+                                            if (context.Teachers.Where(x => x.Number_teacher == intNumberTeacher).Select(x => x).Count() > 0)
+                                            {
+
+
+                                                addTests = context.Tests.Where(check => check.Name_test == nameTests).FirstOrDefault();
+
+                                                if (addTests == null)
+                                                {
+                                                    var tests = new Tests()
+                                                    {
+                                                        Number_discipline = intDisNumber,
+                                                        Number_theme = intNumberTheme,
+                                                        Name_test = nameTests,
+                                                        Max_point = intMaxPoint,
+                                                        Number_teacher = intNumberTeacher
+
+                                                    };
+                                                    context.Tests.Add(tests);
+                                                    context.SaveChanges();
+
+
+                                                    RecordOfTests.recordOfTests = context.Tests.Where(x => x.Name_test == nameTests).Select(x => x).FirstOrDefault();
+
+
+                                                }
+
+
+                                                else
+
+                                                    MessageBox.Show("Этот тест уже существует");
+
+                                            }
+                                            else
+                                                MessageBox.Show("Такой дисциплины не сущетсвует");
+                                        }
+                                        else
+                                            MessageBox.Show("Такой темы не сущетсвует");
+                                    }
+                                    else
+                                        MessageBox.Show("Такого преподавателя не сущетсвует");
+                                }
+                            }
+                        }
+                    }
                 }
             }
 
