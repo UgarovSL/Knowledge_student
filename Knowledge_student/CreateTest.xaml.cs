@@ -24,5 +24,23 @@ namespace Knowledge_student
         {
             InitializeComponent();
         }
+
+        private void CDis(object sender, RoutedEventArgs e)
+        {
+            Uri tableDis = new Uri("Table_Dis.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(tableDis);
+        }
+
+        private void CTheme(object sender, RoutedEventArgs e)
+        {
+            Uri tableTheme = new Uri("Table_Theme.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(tableTheme);
+        }
+
+        private void btnTeatcher_Click(object sender, RoutedEventArgs e)
+        {
+            Uri tableTeatcher = new Uri("Table_Teatcher.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(tableTeatcher);
+        }
     }
 }

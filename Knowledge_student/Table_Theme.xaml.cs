@@ -16,14 +16,20 @@ using System.Windows.Shapes;
 namespace Knowledge_student
 {
     /// <summary>
-    /// Логика взаимодействия для Chek_Dis.xaml
+    /// Логика взаимодействия для Table_Theme.xaml
     /// </summary>
-    public partial class Chek_Dis : Page
+    public partial class Table_Theme : Page
     {
-        public Chek_Dis()
+        public Table_Theme()
         {
             InitializeComponent();
-            DGDis.ItemsSource = Knowledge_controlEntities.GetContext().Disciplines.ToList();
+            DGTheme.ItemsSource = Knowledge_controlEntities.GetContext().Themes.ToList();
+        }
+
+        private void CB(object sender, RoutedEventArgs e)
+        {
+            Uri createTest = new Uri("CreateTest.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(createTest);
         }
     }
 }

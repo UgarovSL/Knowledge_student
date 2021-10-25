@@ -1,4 +1,4 @@
-﻿<Page x:Class="Knowledge_student.Chek_Dis"
+﻿<Page x:Class="Knowledge_student.Table_Teatcher"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Knowledge_student"
       mc:Ignorable="d" 
       d:DesignHeight="1000" d:DesignWidth="1920"
-      Title="Chek_Dis">
+      Title="Table_Teatcher">
 
     <Grid Background = "#249140">
         <Grid Background = "#249140" Margin="0 0 0 0"/>
@@ -23,30 +23,32 @@
 
                     <Grid Margin="0,166,0,-703" Height="637" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="33*"/>
-                            <ColumnDefinition Width="887*"/>
+                            <ColumnDefinition Width="291*"/>
+                            <ColumnDefinition Width="305*"/>
                         </Grid.ColumnDefinitions>
-                        <DataGrid Name="DGDis" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="2">
+                        <DataGrid Name="DGTeatcher" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="2" Margin="0,0,-16,0">
                             <DataGrid.Columns >
 
 
-                                <DataGridTextColumn Header="Номер дисциплины" Binding="{Binding Number_discipline}" Width="*"/>
-                                <DataGridTextColumn Header="Название дисциплины" Binding="{Binding Name_discipline}" Width="*"/>
+                                <DataGridTextColumn Header="Номер преподавателя" Binding="{Binding Number_teacher}" Width="*"/>
+                                <DataGridTextColumn Header="Фамилия преподавателя" Binding="{Binding Last_name}" Width="*"/>
+                                <DataGridTextColumn Header="Имя преподавателя" Binding="{Binding Name}" Width="*"/>
+                                <DataGridTextColumn Header="Отчество преподавателя" Binding="{Binding Patronymic}" Width="*"/>
 
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
 
                     <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
-                               Text = "Просмотр дисциплины"/>
+                               Text = "Просмотр преподавателей"/>
 
 
                     <Button x:Name = "btnExitMenu" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}"/>
 
 
 
-                    <Button x:Name = "btnCreateTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Готово" FontSize = "15" 
-                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "btnBackTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Назад" FontSize = "15" 
+                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True"  BorderBrush = "{x:Null}" Click="BackCreateTest"/>
 
                 </Grid>
 

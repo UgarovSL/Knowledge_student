@@ -71,8 +71,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Chek_Dis.xaml.cs">
-      <DependentUpon>Chek_Dis.xaml</DependentUpon>
+    <Compile Include="Table_Dis.xaml.cs">
+      <DependentUpon>Table_Dis.xaml</DependentUpon>
     </Compile>
     <Compile Include="CreateQuestion.xaml.cs">
       <DependentUpon>CreateQuestion.xaml</DependentUpon>
@@ -131,6 +131,12 @@
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Table_Teatcher.xaml.cs">
+      <DependentUpon>Table_Teatcher.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Table_Theme.xaml.cs">
+      <DependentUpon>Table_Theme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Teachers.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -186,7 +192,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Chek_Dis.xaml">
+    <Page Include="Table_Dis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +225,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StudentMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Table_Teatcher.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Table_Theme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
