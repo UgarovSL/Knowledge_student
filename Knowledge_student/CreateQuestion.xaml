@@ -20,7 +20,7 @@
             <StackPanel>
 
                 <Grid>
-                    <Grid Margin="0,166,0,-703" Height="637" VerticalAlignment="Top">
+                    <Grid Margin="556,-28,613,-90" Height="218" VerticalAlignment="Top">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="33*"/>
                             <ColumnDefinition Width="887*"/>
@@ -32,16 +32,29 @@
 
                     <TextBlock FontSize = "25" FontWeight = "Bold" Foreground = "#4FA833" Margin = "0 0 200 60"
                                Text = "Создание вопроса"/>
+                    <Label Content="Введите вопрос:" RenderTransformOrigin="0.492,2.053" Margin="0,160,430,-90" FontSize="14"/>
+                    <TextBox x:Name = "textBoxNameQue" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,182,303,-132"/>
+                    <Label Content="Введите номер темы:" RenderTransformOrigin="0.492,2.053" Margin="0,232,430,-162" FontSize="14"/>
+                    <TextBox x:Name = "textBoxNumberTheme" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,262,303,-212"/>
+                    <Button x:Name = "btnTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр тем" FontSize = "15" Margin = "1490,262,0,-212" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
+                    <Label Content="Введите ответ:" RenderTransformOrigin="0.492,2.053" Margin="0,312,430,-242" FontSize="14"/>
+                    <TextBox x:Name = "textBoxAnswer" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,342,303,-292"/>
+                    <Label Content="Введите колличество баллов за ответ:" RenderTransformOrigin="0.492,2.053" Margin="0,397,430,-327" FontSize="14"/>
+                    <TextBox x:Name = "textBoxPoint" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,427,303,-377"/>
+                    <Label Content="Введите номер теста:" RenderTransformOrigin="0.492,2.053" Margin="0,482,430,-412" FontSize="14"/>
+                    <TextBox x:Name = "textBoxNumberTest" Foreground = "Black" FontWeight = "Bold"
+                             Margin = "0,512,303,-462"/>
+                    <Button x:Name = "btnTest" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Просмотр тестов" FontSize = "15" Margin = "1490,512,0,-462" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
 
 
-                    <Button x:Name = "Exit" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1614,136,34,-66" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "Exit" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в меню" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}" RenderTransformOrigin="0.798,-3.106"/>
                     <Button x:Name = "SaveQ" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Сохранить вопрос" FontSize = "15" 
                             Height = "35" Margin = "0,722,1490,-657" IsDefault="True"   BorderBrush = "{x:Null}"/>
 
-
-                    <Button x:Name = "AddAnswer" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Добавить вариант ответа" FontSize = "15" 
-                            Height = "35" Margin = "1456,722,34,-657" IsDefault="True"  BorderBrush = "{x:Null}"/>
-                   
                 </Grid>
 
             </StackPanel>

@@ -73,7 +73,7 @@ namespace Knowledge_student
                 textBoxNumberDiscipline.ToolTip = null;
             }
 
-            if (!Regex.IsMatch(disNumber, @"[\d0-9]"))
+            if (!Regex.IsMatch(numberTheme, @"[\d0-9]"))
             {
 
                 textBoxNumberTheme.ToolTip = "Некорректно введен номер темы.";
