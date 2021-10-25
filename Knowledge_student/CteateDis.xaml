@@ -37,15 +37,16 @@
                     <Label Content="Введите название дисциплины:" RenderTransformOrigin="0.492,2.053" Margin="0,160,430,-90" FontSize="14"/>
                     <TextBox x:Name = "textBoxNameDiscipline" Foreground = "Black" FontWeight = "Bold"
                              Margin = "0,182,0,-132"/>
+                    <TextBlock x:Name="errorBox" Text = "{x:Null}" Foreground = "#FFFF5E5B" FontSize = "15" FontWeight = "Bold" Margin="0,202,175,-132"/>
 
 
-                    <Button x:Name = "btnExitMenu" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в мею" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                    <Button x:Name = "btnExitMenu" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Выход в мею" FontSize = "15" Margin = "1648,0,0,70" IsDefault="True" Click="Button_Exit_to_Menu" BorderBrush = "{x:Null}"/>
                     <Button x:Name = "btnCreateDis" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создать" FontSize = "15" 
-                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "0,768,1490,-703" IsDefault="True" Click="Button_Create_Dis"  BorderBrush = "{x:Null}"/>
 
 
                     <Button x:Name = "btnForCreateTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к созданию темы" FontSize = "15" 
-                            Height = "35" Margin = "1490,768,0,-703" IsDefault="True"  BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "1490,768,0,-703" IsDefault="True" Click="Button_to_Create_Theme" BorderBrush = "{x:Null}"/>
 
                 </Grid>
 

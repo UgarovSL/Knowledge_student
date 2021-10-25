@@ -27,7 +27,7 @@ namespace Knowledge_student
 
         private void Button_For_Create_Dis(object sender, RoutedEventArgs e)
         {
-            Uri CreateDis = new Uri("CreateDis.xaml", UriKind.Relative);
+            Uri CreateDis = new Uri("CteateDis.xaml", UriKind.Relative);
             this.NavigationService.Navigate(CreateDis);
         }
 
