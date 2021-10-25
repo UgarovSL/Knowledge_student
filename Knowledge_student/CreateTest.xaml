@@ -64,7 +64,7 @@
                     <Button x:Name = "btnForCreateQuestion" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к созданию вопросов" FontSize = "15" 
                             Height = "35" Margin = "1490,709,0,-644" IsDefault="True"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "btnCreateTest" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создать тест" FontSize = "15" 
-                            Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
+                            Height = "35" Margin = "0,709,1490,-644" IsDefault="True" Click="btnCreateTests"  BorderBrush = "{x:Null}"/>
 
 
                 </Grid>

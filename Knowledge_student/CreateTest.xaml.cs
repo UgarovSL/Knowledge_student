@@ -19,6 +19,11 @@ namespace Knowledge_student
     /// <summary>
     /// Логика взаимодействия для CreateTest.xaml
     /// </summary>
+    /// 
+    public static class RecordOfTests
+    {
+        public static Tests recordOfTests;
+    }
     public partial class CreateTest : Page
     {
         const int minLengthName = 1;
@@ -31,7 +36,7 @@ namespace Knowledge_student
 
         private void CDis(object sender, RoutedEventArgs e)
         {
-            Uri tableDis = new Uri("Table_Dis.xaml", UriKind.Relative);
+            Uri tableDis = new Uri("TableDis.xaml", UriKind.Relative);
             this.NavigationService.Navigate(tableDis);
         }
 
@@ -116,10 +121,67 @@ namespace Knowledge_student
             {
                 textBoxNumberTeacher.Background = Brushes.Transparent;
                 textBoxNumberTeacher.ToolTip = null;
+                Tests addTests = null;
+                using (var context = new Knowledge_controlEntities())
+                {
+
+
+                    int intDisNumber = Convert.ToInt32(disNumber);
+                    int intNumberTheme = Convert.ToInt32(numberTheme);
+                    int intNumberTeacher = Convert.ToInt32(numberTeacher);
+                    int intMaxPoint = Convert.ToInt32(maxPoint);
+
+
+
+                    if (context.Disciplines.Where(x => x.Number_discipline == intDisNumber).Select(x => x).Count() > 0)
+                    {
+                        if (context.Themes.Where(x => x.Number_theme == intNumberTheme).Select(x => x).Count() > 0)
+                        {
+                            if (context.Teachers.Where(x => x.Number_teacher == intNumberTeacher).Select(x => x).Count() > 0)
+                            {
+
+
+                                addTests = context.Tests.Where(check => check.Name_test == nameTests).FirstOrDefault();
+
+                                if (addTests == null)
+                                {
+                                    var tests = new Tests()
+                                    {
+                                        Number_discipline = intDisNumber,
+                                        Number_theme = intNumberTheme,
+                                        Name_test = nameTests,
+                                        Max_point = intMaxPoint,
+                                        Number_teacher = intNumberTeacher
+
+                                    };
+                                    context.Tests.Add(tests);
+                                    context.SaveChanges();
+
+
+                                    RecordOfTests.recordOfTests = context.Tests.Where(x => x.Name_test == nameTests).Select(x => x).FirstOrDefault();
+
+
+                                }
+
+
+                                else
+
+                                    MessageBox.Show("Этот тест уже существует");
+
+                            }
+                            else
+                                MessageBox.Show("Такой дисциплины не сущетсвует");
+                        }
+                        else
+                            MessageBox.Show("Такой темы не сущетсвует");
+                    }
+                    else
+                        MessageBox.Show("Такого преподавателя не сущетсвует");
+                }
             }
+
+
+
         }
-
-
-
-            }
     }
+}

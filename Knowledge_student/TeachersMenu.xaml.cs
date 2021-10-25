@@ -37,5 +37,11 @@ namespace Knowledge_student
             this.NavigationService.Navigate(CreateTheme);
         }
 
+        private void Button_For_Create_Tests(object sender, RoutedEventArgs e)
+        {
+            Uri CreateTests = new Uri("CreateTest.xaml", UriKind.Relative);
+            this.NavigationService.Navigate(CreateTests);
+        }
+
     }
 }
