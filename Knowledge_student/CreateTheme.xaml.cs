@@ -21,9 +21,9 @@ namespace Knowledge_student
     /// </summary>
     public partial class CreateTheme : Page
     {
-        public static class ThemesRecord
+        public static class DisRecord
         {
-            public static Themes themesRecord;
+            public static Disciplines disRecord;
         }
         public CreateTheme()
         {
@@ -66,13 +66,14 @@ namespace Knowledge_student
             {
                 textBoxNameThemes.Background = Brushes.Transparent;
                 textBoxNameThemes.ToolTip = null;
-
+              
                 Themes addThemes = null;
                 using (var context = new Knowledge_controlEntities())
                 {
                     string lor = Dis_Number.ToString();
                     int r = Convert.ToInt32(lor);
                     addThemes = context.Themes.Where(check => check.Number_discipline == r).FirstOrDefault();
+                
                     if (addThemes == null)
                     {
                         var themes = new Themes()
@@ -84,7 +85,7 @@ namespace Knowledge_student
                         context.Themes.Add(themes);
                         context.SaveChanges();
 
-                        ThemesRecord.themesRecord = context.Themes.Where(x => x.Name_theme == Nametheme).Select(x => x).FirstOrDefault();
+                        DisRecord.disRecord = context.Disciplines.Where(x => x.Number_discipline == r).Select(x => x).FirstOrDefault();
 
 
                     }
