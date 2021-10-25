@@ -74,6 +74,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CreateQuestion.xaml.cs">
+      <DependentUpon>CreateQuestion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTest.xaml.cs">
+      <DependentUpon>CreateTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateTheme.xaml.cs">
+      <DependentUpon>CreateTheme.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CteateDis.xaml.cs">
       <DependentUpon>CteateDis.xaml</DependentUpon>
     </Compile>
@@ -174,6 +183,18 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateQuestion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
