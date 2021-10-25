@@ -37,26 +37,23 @@
 
                     <Label Content="Введите номер дисциплины:" RenderTransformOrigin="0.492,2.053" Margin="0,160,430,-90" FontSize="14"/>
                     <TextBox x:Name = "textBoxNumberDiscipline" Foreground = "Black" FontWeight = "Bold"
-                             Margin = "0,182,405,-132"/>
-                    <Button x:Name = "btnDis" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру дисциплины" FontSize = "15" 
-                            Height = "35" Margin = "1454,182,36,-117" IsDefault="True"  BorderBrush = "{x:Null}" Click="CDis"/>
+                             Margin = "0,182,303,-132"/>
+                    <Button x:Name = "btnDis" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру дисциплины" FontSize = "15" Margin = "1490,182,0,-132" IsDefault="True"  BorderBrush = "{x:Null}" Click="CDis"/>
 
                     <Label Content="Введите номер темы:" RenderTransformOrigin="0.492,2.053" Margin="0,232,430,-162" FontSize="14"/>
                     <TextBox x:Name = "textBoxNumberTheme" Foreground = "Black" FontWeight = "Bold"
-                             Margin = "0,262,405,-212"/>
-                    <Button x:Name = "btnTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру темы" FontSize = "15" 
-                            Height = "35" Margin = "1454,277,36,-212" IsDefault="True"  BorderBrush = "{x:Null}" Click="CTheme"/>
+                             Margin = "0,262,303,-212"/>
+                    <Button x:Name = "btnTheme" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру темы" FontSize = "15" Margin = "1490,262,0,-212" IsDefault="True"  BorderBrush = "{x:Null}" Click="CTheme"/>
                     <Label Content="Введите название теста:" RenderTransformOrigin="0.492,2.053" Margin="0,312,430,-242" FontSize="14"/>
                     <TextBox x:Name = "textBoxNameTest" Foreground = "Black" FontWeight = "Bold"
-                             Margin = "0,342,405,-292"/>
+                             Margin = "0,342,0,-292"/>
                     <Label Content="Введите максимальное колличество баллов за тест:" RenderTransformOrigin="0.492,2.053" Margin="0,392,430,-322" FontSize="14"/>
                     <TextBox x:Name = "textBoxMaxPoint" Foreground = "Black" FontWeight = "Bold"
-                             Margin = "0,422,405,-372"/>
+                             Margin = "0,422,0,-372"/>
                     <Label Content="Введите номер преподавателя:" RenderTransformOrigin="0.492,2.053" Margin="0,472,430,-402" FontSize="14"/>
                     <TextBox x:Name = "textBoxNumberTeacher" Foreground = "Black" FontWeight = "Bold"
-                             Margin = "0,502,405,-452"/>
-                    <Button x:Name = "btnTeatcher" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру темы" FontSize = "15" 
-                            Height = "35" Margin = "1454,502,36,-437" IsDefault="True"  BorderBrush = "{x:Null}" Click="btnTeatcher_Click" />
+                             Margin = "0,502,303,-452"/>
+                    <Button x:Name = "btnTeatcher" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру темы" FontSize = "15" Margin = "1490,502,0,-452" IsDefault="True"  BorderBrush = "{x:Null}" Click="btnTeatcher_Click" />
 
 
 
@@ -68,7 +65,7 @@
                             Height = "35" Margin = "1490,709,0,-644" IsDefault="True"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "btnCreateTest" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создать тест" FontSize = "15" 
                             Height = "35" Margin = "0,709,1490,-644" IsDefault="True"   BorderBrush = "{x:Null}"/>
-                  
+
 
                 </Grid>
 
