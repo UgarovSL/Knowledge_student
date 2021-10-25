@@ -25,7 +25,6 @@ namespace Knowledge_student
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Answers> Answers { get; set; }
         public virtual DbSet<Disciplines> Disciplines { get; set; }
         public virtual DbSet<Option_answers> Option_answers { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }

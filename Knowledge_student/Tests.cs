@@ -17,6 +17,7 @@ namespace Knowledge_student
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tests()
         {
+            this.Questions = new HashSet<Questions>();
             this.Results = new HashSet<Results>();
         }
     
@@ -27,6 +28,8 @@ namespace Knowledge_student
         public int Max_point { get; set; }
         public int Number_teacher { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Questions> Questions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Results> Results { get; set; }
         public virtual Teachers Teachers { get; set; }

@@ -23,11 +23,13 @@ namespace Knowledge_student
         public int Number_question { get; set; }
         public string Question { get; set; }
         public int Number_theme { get; set; }
-        public int Number_answer { get; set; }
+        public string Answers { get; set; }
+        public int Points { get; set; }
+        public int Number_test { get; set; }
     
-        public virtual Answers Answers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Option_answers> Option_answers { get; set; }
+        public virtual Tests Tests { get; set; }
         public virtual Themes Themes { get; set; }
     }
 }
