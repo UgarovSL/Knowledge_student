@@ -27,6 +27,7 @@ namespace Knowledge_student
         public string Name_test { get; set; }
         public int Max_point { get; set; }
         public int Number_teacher { get; set; }
+        public string Name_group { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Questions> Questions { get; set; }

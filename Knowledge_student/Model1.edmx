@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Knowledge_controlModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Knowledge_controlModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Answer_options">
           <Key>
             <PropertyRef Name="Number_answer_option" />
@@ -85,6 +85,7 @@
           <Property Name="Name_test" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Max_point" Type="int" Nullable="false" />
           <Property Name="Number_teacher" Type="int" Nullable="false" />
+          <Property Name="Name_group" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Themes">
           <Key>
@@ -253,8 +254,7 @@
             <End Role="Themes" EntitySet="Themes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Knowledge_controlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -350,6 +350,7 @@
           <NavigationProperty Name="Results" Relationship="Self.FK_Results_Tests" FromRole="Tests" ToRole="Results" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Tests_Teachers" FromRole="Tests" ToRole="Teachers" />
           <NavigationProperty Name="Themes" Relationship="Self.FK_Tests_Themes" FromRole="Tests" ToRole="Themes" />
+          <Property Name="Name_group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Themes">
           <Key>
@@ -595,6 +596,7 @@
           <EntitySetMapping Name="Tests">
             <EntityTypeMapping TypeName="Knowledge_controlModel.Tests">
               <MappingFragment StoreEntitySet="Tests">
+                <ScalarProperty Name="Name_group" ColumnName="Name_group" />
                 <ScalarProperty Name="Number_test" ColumnName="Number_test" />
                 <ScalarProperty Name="Number_discipline" ColumnName="Number_discipline" />
                 <ScalarProperty Name="Number_theme" ColumnName="Number_theme" />

@@ -29,6 +29,9 @@ namespace Knowledge_student
         const int minLengthName = 1;
         const int maxLenghtName = 50;
         const int maxMaxPoint = 4;
+
+        const int minLenghtOfGroup = 5;
+        const int maxLenghtOfGroup = 8;
         public CreateTest()
         {
             InitializeComponent();
@@ -58,7 +61,7 @@ namespace Knowledge_student
             string numberTheme = textBoxNumberTheme.Text.Trim();
             string nameTests = textBoxNameTest.Text.Trim();
             string maxPoint = textBoxMaxPoint.Text.Trim().ToLower();
-            string numberTeacher = textBoxNumberTeacher.Text.Trim().ToLower();
+            string nameGroup = textBoxNameGroup.Text.Trim().ToLower();
 
             if (!Regex.IsMatch(disNumber, @"[\d0-9]"))
             {
@@ -110,17 +113,17 @@ namespace Knowledge_student
                             textBoxMaxPoint.Background = Brushes.Transparent;
                             textBoxMaxPoint.ToolTip = null;
 
-                            if (!Regex.IsMatch(numberTeacher, @"[\d0-9]"))
+                            if (nameGroup.Length >= maxLenghtOfGroup || nameGroup.Length <= minLenghtOfGroup || !Regex.IsMatch(nameGroup, @"[\dа-я]"))
                             {
 
-                                textBoxNumberTeacher.ToolTip = "Некорректно введен номер преподавателя.";
+                                textBoxNameGroup.ToolTip = "Некорректно введен номер группы.";
                                 var backgroundColor = new BrushConverter();
-                                textBoxNumberTeacher.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
+                                textBoxNameGroup.Background = (Brush)backgroundColor.ConvertFrom("#FFFF5E5B");
                             }
                             else
                             {
-                                textBoxNumberTeacher.Background = Brushes.Transparent;
-                                textBoxNumberTeacher.ToolTip = null;
+                                textBoxNameGroup.Background = Brushes.Transparent;
+                                textBoxNameGroup.ToolTip = null;
                                 Tests addTests = null;
                                 using (var context = new Knowledge_controlEntities())
                                 {
@@ -128,7 +131,7 @@ namespace Knowledge_student
 
                                     int intDisNumber = Convert.ToInt32(disNumber);
                                     int intNumberTheme = Convert.ToInt32(numberTheme);
-                                    int intNumberTeacher = Convert.ToInt32(numberTeacher);
+
                                     int intMaxPoint = Convert.ToInt32(maxPoint);
 
 
@@ -137,8 +140,9 @@ namespace Knowledge_student
                                     {
                                         if (context.Themes.Where(x => x.Number_theme == intNumberTheme).Select(x => x).Count() > 0)
                                         {
-                                            if (context.Teachers.Where(x => x.Number_teacher == intNumberTeacher).Select(x => x).Count() > 0)
+                                            if (context.Students.Where(x => x.Name_group == nameGroup).Select(x => x).Count() > 0)
                                             {
+
 
 
                                                 addTests = context.Tests.Where(check => check.Name_test == nameTests).FirstOrDefault();
@@ -151,7 +155,8 @@ namespace Knowledge_student
                                                         Number_theme = intNumberTheme,
                                                         Name_test = nameTests,
                                                         Max_point = intMaxPoint,
-                                                        Number_teacher = intNumberTeacher
+                                                        Number_teacher = context.Teachers.Where(x => x.Login == RecordOfTeachers.recordOfTeachers.Login).Select(x => x.Number_teacher).FirstOrDefault(),
+                                                        Name_group = nameGroup 
 
                                                     };
                                                     context.Tests.Add(tests);
@@ -167,16 +172,16 @@ namespace Knowledge_student
                                                 else
 
                                                     MessageBox.Show("Этот тест уже существует");
-
                                             }
-                                            else
-                                                MessageBox.Show("Такой дисциплины не сущетсвует");
+                                            else MessageBox.Show("Такой группы не существует");
+
                                         }
                                         else
-                                            MessageBox.Show("Такой темы не сущетсвует");
+                                            MessageBox.Show("Такой дисциплины не сущетсвует");
                                     }
                                     else
-                                        MessageBox.Show("Такого преподавателя не сущетсвует");
+                                        MessageBox.Show("Такой темы не сущетсвует");
+
                                 }
                             }
                         }

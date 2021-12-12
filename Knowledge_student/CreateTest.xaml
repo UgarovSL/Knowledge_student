@@ -50,10 +50,6 @@
                     <Label Content="Введите максимальное колличество баллов за тест:" RenderTransformOrigin="0.492,2.053" Margin="0,392,430,-322" FontSize="14"/>
                     <TextBox x:Name = "textBoxMaxPoint" Foreground = "Black" FontWeight = "Bold"
                              Margin = "0,422,0,-372"/>
-                    <Label Content="Введите номер преподавателя:" RenderTransformOrigin="0.492,2.053" Margin="0,472,430,-402" FontSize="14"/>
-                    <TextBox x:Name = "textBoxNumberTeacher" Foreground = "Black" FontWeight = "Bold"
-                             Margin = "0,502,303,-452"/>
-                    <Button x:Name = "btnTeatcher" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Перейти к просмотру темы" FontSize = "15" Margin = "1490,502,0,-452" IsDefault="True"  BorderBrush = "{x:Null}" Click="btnTeatcher_Click" />
 
 
 
@@ -65,6 +61,9 @@
                             Height = "35" Margin = "1490,709,0,-644" IsDefault="True"  BorderBrush = "{x:Null}"/>
                     <Button x:Name = "btnCreateTest" Background = "#4FA833" Foreground = "White" FontWeight = "Bold" Content = "Создать тест" FontSize = "15" 
                             Height = "35" Margin = "0,709,1490,-644" IsDefault="True" Click="btnCreateTests"  BorderBrush = "{x:Null}"/>
+                    <Label Content="Введите название группы:" RenderTransformOrigin="0.492,2.053" Margin="0,472,430,-402" FontSize="14"/>
+                    <TextBox x:Name = "textBoxNameGroup" Foreground = "Black" FontWeight = "Bold"
+                        Margin = "0,502,0,-452"/>
 
 
                 </Grid>
