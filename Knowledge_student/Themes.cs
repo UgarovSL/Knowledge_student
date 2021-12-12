@@ -17,7 +17,6 @@ namespace Knowledge_student
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Themes()
         {
-            this.Questions = new HashSet<Questions>();
             this.Tests = new HashSet<Tests>();
         }
     
@@ -26,8 +25,6 @@ namespace Knowledge_student
         public int Number_discipline { get; set; }
     
         public virtual Disciplines Disciplines { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Questions> Questions { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tests> Tests { get; set; }
     }

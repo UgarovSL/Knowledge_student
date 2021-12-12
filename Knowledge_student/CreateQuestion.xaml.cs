@@ -135,7 +135,6 @@ namespace Knowledge_student
                                                 var question = new Questions()
                                                 {
                                                     Question = nameQuestion,
-                                                    Number_theme = intNumberTheme,
                                                     Answers = nameAnswer,
                                                     Points = intQuePoint,
                                                     Number_test = intNumberTest
@@ -145,7 +144,7 @@ namespace Knowledge_student
                                                 context.SaveChanges();
 
 
-                                                RecordOfQuestion.recordOfQuestion = context.Questions.Where(x => x.Question == nameQuestion && x.Number_theme == intNumberTheme).Select(x => x).FirstOrDefault();
+                                                RecordOfQuestion.recordOfQuestion = context.Questions.Where(x => x.Question == nameQuestion && x.Number_test == intNumberTest).Select(x => x).FirstOrDefault();
 
 
                                             }
