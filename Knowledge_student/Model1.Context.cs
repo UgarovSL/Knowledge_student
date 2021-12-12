@@ -12,13 +12,24 @@ namespace Knowledge_student
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+
+
     
     public partial class Knowledge_controlEntities : DbContext
     {
+        private static Knowledge_controlEntities context;
+
+        public static Knowledge_controlEntities GetContext()
+        {
+            if (context == null)
+                context = new Knowledge_controlEntities();
+            return context;
+        }
         public Knowledge_controlEntities()
             : base("name=Knowledge_controlEntities")
         {
         }
+
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
