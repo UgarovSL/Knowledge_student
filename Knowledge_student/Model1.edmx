@@ -4,13 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Knowledge_controlModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Answer_options">
+      <Schema Namespace="Хранилище Knowledge_controlModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Answer">
           <Key>
-            <PropertyRef Name="Number_answer_option" />
+            <PropertyRef Name="Number_answer" />
           </Key>
-          <Property Name="Number_answer_option" Type="int" Nullable="false" />
-          <Property Name="Answer_option" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Number_answer" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Answer_right" Type="bit" Nullable="false" />
           <Property Name="Number_question" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Disciplines">
@@ -26,8 +27,6 @@
           </Key>
           <Property Name="Number_question" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Question" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Answers" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Points" Type="int" Nullable="false" />
           <Property Name="Number_test" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Results">
@@ -113,18 +112,6 @@
           <Property Name="Max_point" Type="int" Nullable="false" />
           <Property Name="Name_teacher" Type="varchar" MaxLength="47" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Answer_options_Questions">
-          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
-          <End Role="Answer_options" Type="Self.Answer_options" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questions">
-              <PropertyRef Name="Number_question" />
-            </Principal>
-            <Dependent Role="Answer_options">
-              <PropertyRef Name="Number_question" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Questions_Tests">
           <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
           <End Role="Questions" Type="Self.Questions" Multiplicity="*" />
@@ -150,9 +137,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Results_Tests">
-          <End Role="Tests" Type="Self.Tests" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
           <End Role="Results" Type="Self.Results" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tests">
@@ -206,7 +191,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище Knowledge_controlModelContainer">
-          <EntitySet Name="Answer_options" EntityType="Self.Answer_options" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Answer" EntityType="Self.Answer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Disciplines" EntityType="Self.Disciplines" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
@@ -225,10 +210,6 @@
     [Table_for_tests].[Name_teacher] AS [Name_teacher]
     FROM [dbo].[Table_for_tests] AS [Table_for_tests]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK_Answer_options_Questions" Association="Self.FK_Answer_options_Questions">
-            <End Role="Questions" EntitySet="Questions" />
-            <End Role="Answer_options" EntitySet="Answer_options" />
-          </AssociationSet>
           <AssociationSet Name="FK_Questions_Tests" Association="Self.FK_Questions_Tests">
             <End Role="Tests" EntitySet="Tests" />
             <End Role="Questions" EntitySet="Questions" />
@@ -254,18 +235,19 @@
             <End Role="Themes" EntitySet="Themes" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Knowledge_controlModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Answer_options">
+        <EntityType Name="Answer">
           <Key>
-            <PropertyRef Name="Number_answer_option" />
+            <PropertyRef Name="Number_answer" />
           </Key>
-          <Property Name="Number_answer_option" Type="Int32" Nullable="false" />
-          <Property Name="Answer_option" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Number_answer" Type="Int32" Nullable="false" />
+          <Property Name="Answer1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Answer_right" Type="Boolean" Nullable="false" />
           <Property Name="Number_question" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Questions" Relationship="Self.FK_Answer_options_Questions" FromRole="Answer_options" ToRole="Questions" />
         </EntityType>
         <EntityType Name="Disciplines">
           <Key>
@@ -281,10 +263,7 @@
           </Key>
           <Property Name="Number_question" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Question" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Answers" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Points" Type="Int32" Nullable="false" />
           <Property Name="Number_test" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Answer_options" Relationship="Self.FK_Answer_options_Questions" FromRole="Questions" ToRole="Answer_options" />
           <NavigationProperty Name="Tests" Relationship="Self.FK_Questions_Tests" FromRole="Questions" ToRole="Tests" />
         </EntityType>
         <EntityType Name="Results">
@@ -346,11 +325,11 @@
           <Property Name="Name_test" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Max_point" Type="Int32" Nullable="false" />
           <Property Name="Number_teacher" Type="Int32" Nullable="false" />
+          <Property Name="Name_group" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Tests" FromRole="Tests" ToRole="Questions" />
           <NavigationProperty Name="Results" Relationship="Self.FK_Results_Tests" FromRole="Tests" ToRole="Results" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Tests_Teachers" FromRole="Tests" ToRole="Teachers" />
           <NavigationProperty Name="Themes" Relationship="Self.FK_Tests_Themes" FromRole="Tests" ToRole="Themes" />
-          <Property Name="Name_group" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Themes">
           <Key>
@@ -378,18 +357,6 @@
           <Property Name="Max_point" Type="Int32" Nullable="false" />
           <Property Name="Name_teacher" Type="String" MaxLength="47" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Answer_options_Questions">
-          <End Role="Questions" Type="Self.Questions" Multiplicity="1" />
-          <End Role="Answer_options" Type="Self.Answer_options" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Questions">
-              <PropertyRef Name="Number_question" />
-            </Principal>
-            <Dependent Role="Answer_options">
-              <PropertyRef Name="Number_question" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Themes_Disciplines">
           <End Role="Disciplines" Type="Self.Disciplines" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -429,9 +396,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Results_Tests">
-          <End Role="Tests" Type="Self.Tests" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="Tests" Type="Self.Tests" Multiplicity="1" />
           <End Role="Results" Type="Self.Results" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tests">
@@ -471,7 +436,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Knowledge_controlEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Answer_options" EntityType="Self.Answer_options" />
+          <EntitySet Name="Answer" EntityType="Self.Answer" />
           <EntitySet Name="Disciplines" EntityType="Self.Disciplines" />
           <EntitySet Name="Questions" EntityType="Self.Questions" />
           <EntitySet Name="Results" EntityType="Self.Results" />
@@ -481,10 +446,6 @@
           <EntitySet Name="Tests" EntityType="Self.Tests" />
           <EntitySet Name="Themes" EntityType="Self.Themes" />
           <EntitySet Name="Table_for_tests" EntityType="Self.Table_for_tests" />
-          <AssociationSet Name="FK_Answer_options_Questions" Association="Self.FK_Answer_options_Questions">
-            <End Role="Questions" EntitySet="Questions" />
-            <End Role="Answer_options" EntitySet="Answer_options" />
-          </AssociationSet>
           <AssociationSet Name="FK_Themes_Disciplines" Association="Self.FK_Themes_Disciplines">
             <End Role="Disciplines" EntitySet="Disciplines" />
             <End Role="Themes" EntitySet="Themes" />
@@ -516,11 +477,12 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище Knowledge_controlModelContainer" CdmEntityContainer="Knowledge_controlEntities">
-          <EntitySetMapping Name="Answer_options">
-            <EntityTypeMapping TypeName="Knowledge_controlModel.Answer_options">
-              <MappingFragment StoreEntitySet="Answer_options">
-                <ScalarProperty Name="Number_answer_option" ColumnName="Number_answer_option" />
-                <ScalarProperty Name="Answer_option" ColumnName="Answer_option" />
+          <EntitySetMapping Name="Answer">
+            <EntityTypeMapping TypeName="Knowledge_controlModel.Answer">
+              <MappingFragment StoreEntitySet="Answer">
+                <ScalarProperty Name="Number_answer" ColumnName="Number_answer" />
+                <ScalarProperty Name="Answer1" ColumnName="Answer" />
+                <ScalarProperty Name="Answer_right" ColumnName="Answer_right" />
                 <ScalarProperty Name="Number_question" ColumnName="Number_question" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -538,8 +500,6 @@
               <MappingFragment StoreEntitySet="Questions">
                 <ScalarProperty Name="Number_question" ColumnName="Number_question" />
                 <ScalarProperty Name="Question" ColumnName="Question" />
-                <ScalarProperty Name="Answers" ColumnName="Answers" />
-                <ScalarProperty Name="Points" ColumnName="Points" />
                 <ScalarProperty Name="Number_test" ColumnName="Number_test" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -596,13 +556,13 @@
           <EntitySetMapping Name="Tests">
             <EntityTypeMapping TypeName="Knowledge_controlModel.Tests">
               <MappingFragment StoreEntitySet="Tests">
-                <ScalarProperty Name="Name_group" ColumnName="Name_group" />
                 <ScalarProperty Name="Number_test" ColumnName="Number_test" />
                 <ScalarProperty Name="Number_discipline" ColumnName="Number_discipline" />
                 <ScalarProperty Name="Number_theme" ColumnName="Number_theme" />
                 <ScalarProperty Name="Name_test" ColumnName="Name_test" />
                 <ScalarProperty Name="Max_point" ColumnName="Max_point" />
                 <ScalarProperty Name="Number_teacher" ColumnName="Number_teacher" />
+                <ScalarProperty Name="Name_group" ColumnName="Name_group" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

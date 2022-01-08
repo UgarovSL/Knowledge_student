@@ -4,18 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a4618149eae8420cae75e7a0c06d9dbb" Name="Diagram1">
-        <EntityTypeShape EntityType="Knowledge_controlModel.Answer_options" Width="1.5" PointX="9.75" PointY="4" IsExpanded="true" />
+      <Diagram DiagramId="1b5b68a26d0146219dd5dcab3b42d560" Name="Diagram1">
+        <EntityTypeShape EntityType="Knowledge_controlModel.Answer" Width="1.5" PointX="7.75" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Knowledge_controlModel.Disciplines" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Knowledge_controlModel.Questions" Width="1.5" PointX="7.5" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Knowledge_controlModel.Results" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Knowledge_controlModel.Students" Width="1.5" PointX="8.25" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="Knowledge_controlModel.sysdiagrams" Width="1.5" PointX="10.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Questions" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Results" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Students" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Knowledge_controlModel.Teachers" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Knowledge_controlModel.Tests" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Tests" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Knowledge_controlModel.Themes" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="Knowledge_controlModel.Table_for_tests" Width="1.5" PointX="5.75" PointY="11.875" IsExpanded="true" />
-        <AssociationConnector Association="Knowledge_controlModel.FK_Answer_options_Questions" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Knowledge_controlModel.Table_for_tests" Width="1.5" PointX="9.75" PointY="2.125" IsExpanded="true" />
         <AssociationConnector Association="Knowledge_controlModel.FK_Themes_Disciplines" ManuallyRouted="false" />
         <AssociationConnector Association="Knowledge_controlModel.FK_Questions_Tests" ManuallyRouted="false" />
         <AssociationConnector Association="Knowledge_controlModel.FK_Results_Students" ManuallyRouted="false" />

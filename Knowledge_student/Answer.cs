@@ -12,12 +12,11 @@ namespace Knowledge_student
     using System;
     using System.Collections.Generic;
     
-    public partial class Answer_options
+    public partial class Answer
     {
-        public int Number_answer_option { get; set; }
-        public string Answer_option { get; set; }
+        public int Number_answer { get; set; }
+        public string Answer1 { get; set; }
+        public bool Answer_right { get; set; }
         public int Number_question { get; set; }
-    
-        public virtual Questions Questions { get; set; }
     }
 }

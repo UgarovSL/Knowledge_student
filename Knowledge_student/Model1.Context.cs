@@ -12,8 +12,6 @@ namespace Knowledge_student
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
-
     
     public partial class Knowledge_controlEntities : DbContext
     {
@@ -29,14 +27,13 @@ namespace Knowledge_student
             : base("name=Knowledge_controlEntities")
         {
         }
-
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Answer_options> Answer_options { get; set; }
+        public virtual DbSet<Answer> Answer { get; set; }
         public virtual DbSet<Disciplines> Disciplines { get; set; }
         public virtual DbSet<Questions> Questions { get; set; }
         public virtual DbSet<Results> Results { get; set; }
