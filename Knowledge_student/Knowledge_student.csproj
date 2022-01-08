@@ -78,6 +78,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CreatorTests.xaml.cs">
+      <DependentUpon>CreatorTests.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Disciplines.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -159,6 +162,9 @@
     <Compile Include="TeachersMenu.xaml.cs">
       <DependentUpon>TeachersMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TestList.xaml.cs">
+      <DependentUpon>TestList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Tests.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -205,6 +211,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Auth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreatorTests.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,6 +275,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TeachersMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TestList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

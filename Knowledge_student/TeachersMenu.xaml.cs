@@ -41,7 +41,7 @@ namespace Knowledge_student
 
         private void Button_For_Create_Tests(object sender, RoutedEventArgs e)
         {
-            Uri CreateTests = new Uri("CreateTest.xaml", UriKind.Relative);
+            Uri CreateTests = new Uri("CreatorTests.xaml", UriKind.Relative);
             this.NavigationService.Navigate(CreateTests);
         }
 
